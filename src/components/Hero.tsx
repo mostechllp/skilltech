@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+
 import one from "../assets/images/categories/Icon_AC_Brackets.webp";
 import two from "../assets/images/categories/Icon_CCTV_Brackets.webp";
 import three from "../assets/images/categories/Icon_Desktop_Mount.webp";
@@ -40,10 +41,12 @@ const squareData = [
 
 const shuffle = (array: typeof squareData) => {
   const arr = [...array];
+
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
+
   return arr;
 };
 
@@ -72,18 +75,35 @@ const ShuffleGrid = () => {
 
   useEffect(() => {
     shuffleSquares();
+
     return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, []);
 
   const shuffleSquares = () => {
     setSquares(generateSquares());
+
     timeoutRef.current = setTimeout(shuffleSquares, 3500);
   };
 
   return (
-    <div className="grid grid-cols-4 grid-rows-4 h-[500px] gap-2">
+    <div
+      className="
+        grid
+        grid-cols-3
+        grid-rows-3
+        sm:grid-cols-4
+        sm:grid-rows-4
+        h-[280px]
+        sm:h-[350px]
+        md:h-[450px]
+        lg:h-[500px]
+        gap-2
+      "
+    >
       {squares}
     </div>
   );
@@ -94,31 +114,121 @@ export function Hero() {
 
   return (
     <section className="bg-lavender-light w-full">
-      <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div
+        className="
+          container
+          mx-auto
+          px-4
+          md:px-8
+          py-12
+          sm:py-16
+          md:py-24
+          grid
+          grid-cols-1
+          lg:grid-cols-2
+          gap-12
+          items-center
+        "
+      >
         {/* Left Content */}
-        <div>
-          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-pink-100 text-pink-600 text-sm font-medium">
-            {t('premiumMountingSolutions')}
+        <div className="text-center lg:text-left">
+          <span
+            className="
+              inline-block
+              mb-4
+              px-4
+              py-1
+              rounded-full
+              bg-pink-100
+              text-pink-600
+              text-sm
+              font-medium
+            "
+          >
+            {t("premiumMountingSolutions")}
           </span>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-navy leading-tight">
-            {t('mountSmarter')}
+          <h1
+            className="
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              font-bold
+              text-navy
+              leading-tight
+            "
+          >
+            {t("mountSmarter")}
             <br />
-            {t('workBetter')}
+            {t("workBetter")}
           </h1>
 
-          <p className="text-slate-600 text-lg mt-6 max-w-xl">
-            {t('heroDescription')}
+          <p
+            className="
+              text-base
+              sm:text-lg
+              text-slate-600
+              mt-6
+              max-w-xl
+              mx-auto
+              lg:mx-0
+            "
+          >
+            {t("heroDescription")}
           </p>
 
-          <div className="flex gap-4 mt-8">
-            <button className="bg-navy text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-pink-accent transition-colors group">
-              {t('exploreProducts')}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          <div
+            className="
+              flex
+              flex-col
+              sm:flex-row
+              gap-4
+              mt-8
+              justify-center
+              lg:justify-start
+            "
+          >
+            <button
+              className="
+                w-full
+                sm:w-auto
+                bg-navy
+                text-white
+                px-6
+                py-3
+                rounded-full
+                flex
+                items-center
+                justify-center
+                gap-2
+                hover:bg-pink-accent
+                transition-colors
+                group
+              "
+            >
+              {t("exploreProducts")}
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </button>
 
-            <button className="border border-slate-300 px-6 py-3 rounded-full hover:bg-white hover:border-pink-accent hover:text-pink-accent transition-all">
-              {t('viewProjects')}
+            <button
+              className="
+                w-full
+                sm:w-auto
+                border
+                border-slate-300
+                px-6
+                py-3
+                rounded-full
+                hover:bg-white
+                hover:border-pink-accent
+                hover:text-pink-accent
+                transition-all
+              "
+            >
+              {t("viewProjects")}
             </button>
           </div>
         </div>

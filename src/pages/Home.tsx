@@ -20,8 +20,7 @@ export function Home() {
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <TopBar />
       <Header />
-      {/* Add padding-top to account for fixed TopBar (44px) + Header (72px) = 116px */}
-      <main className="pt-[116px] lg:pt-[120px]">
+      <main>
         <Hero />
         <BrowseCategory />
         <ExploreProducts />

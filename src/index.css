@@ -64,3 +64,29 @@
   margin-right: 0.5rem;
   margin-left: 0;
 }
+
+/* Mega Menu Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.absolute.top-full.mt-2 {
+  animation: fadeInDown 0.2s ease-out;
+}
+
+/* Rotate animation for chevron */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Smooth transition for mobile dropdown */
+#mobile-dropdown-products {
+  transition: all 0.3s ease;
+}

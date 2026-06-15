@@ -54,42 +54,67 @@ export function TopBar() {
   }, []);
 
   return (
-    <div className="bg-[#3351a3] text-white py-2 px-4 md:px-8 text-xs md:text-sm flex flex-col md:flex-row justify-between items-center gap-2 z-50 fixed top-0 left-0 right-0">
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <a href="#" className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors">
-            <Facebook className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors">
-            <Instagram className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors">
-            <Twitter className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors">
-            <Linkedin className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors">
-            <Youtube className="w-3.5 h-3.5" />
-          </a>
-        </div>
+    <div className="bg-[#3351a3] text-white py-2 px-4 md:px-8 text-xs md:text-sm flex items-center justify-between gap-2 z-50 relative">
+      {/* Social Icons - Left */}
+      <div className="flex items-center gap-2">
+        <a
+          href="#"
+          className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors"
+        >
+          <Facebook className="w-3.5 h-3.5" />
+        </a>
+        <a
+          href="#"
+          className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors"
+        >
+          <Instagram className="w-3.5 h-3.5" />
+        </a>
+        <a
+          href="#"
+          className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors"
+        >
+          <Twitter className="w-3.5 h-3.5" />
+        </a>
+        <a
+          href="#"
+          className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors sm:flex"
+        >
+          <Linkedin className="w-3.5 h-3.5" />
+        </a>
+        <a
+          href="#"
+          className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-accent transition-colors sm:flex"
+        >
+          <Youtube className="w-3.5 h-3.5" />
+        </a>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-        <a href="mailto:info@skilltechonline.com" className="flex items-center gap-1.5 hover:text-pink-accent transition-colors">
+      {/* Contact Info - Hidden on mobile, visible on desktop */}
+      <div className="hidden md:flex flex-wrap items-center justify-center gap-4 md:gap-6">
+        <a
+          href="mailto:info@skilltechonline.com"
+          className="flex items-center gap-1.5 hover:text-pink-accent transition-colors"
+        >
           <Mail className="w-4 h-4" />
           <span>info@skilltechonline.com</span>
         </a>
-        <a href="tel:+971509637077" className="flex items-center gap-1.5 hover:text-pink-accent transition-colors">
+        <a
+          href="tel:+971509637077"
+          className="flex items-center gap-1.5 hover:text-pink-accent transition-colors"
+        >
           <Phone className="w-4 h-4" />
           <span>+971 50 963 7077</span>
         </a>
-        <a href="tel:+97142347770" className="flex items-center gap-1.5 hover:text-pink-accent transition-colors hidden sm:flex">
+        <a
+          href="tel:+97142347770"
+          className="flex items-center gap-1.5 hover:text-pink-accent transition-colors hidden lg:flex"
+        >
           <Phone className="w-4 h-4" />
           <span>+971 4 234 7770</span>
         </a>
       </div>
 
+      {/* Language Switcher Dropdown - Right */}
       <div className="relative" ref={dropdownRef}>
         <button
           onClick={() => setIsOpen(!isOpen)}
