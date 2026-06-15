@@ -3,87 +3,107 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
+import tv_mount from "../assets/images/categories/Icon_TV_Wall_Mount.webp"
+import monitor_mount from "../assets/images/categories/Icon_Desktop_Mount.webp"
+import monitorized_mount from "../assets/images/categories/Icon_Motorized_Mount.webp"
+import tv_floor from "../assets/images/categories/Icon_Floor_Stand.webp"
+import tv_ceiling from "../assets/images/categories/Icon_TV_Ceiling_Mount.webp"
+import tv from "../assets/images/categories/Icon_Television.webp"
+import kiosk from "../assets/images/categories/Icon_Kiosk_Stand.webp"
+import led from "../assets/images/categories/Icon_LED_Display.webp"
+import proj_screen from "../assets/images/categories/Icon_Projector_Screen.webp"
+import proj_mount from "../assets/images/categories/Icon_Projector_Mount.webp"
+import gaming from "../assets/images/categories/Icon_Gaming_Chair.webp"
+import pos from "../assets/images/categories/Icon_POS_Stand.webp"
+import video from "../assets/images/categories/Icon_Video_Wall_Mount.webp"
+import hdmi from "../assets/images/categories/Icon_HDMI_Cables.webp"
+import dvd from "../assets/images/categories/Icon_DVD_-_Recevier_Mount.webp"
+import cctv from "../assets/images/categories/Icon_CCTV_Brackets.webp"
+import ac from "../assets/images/categories/Icon_AC_Brackets.webp"
+import other from "../assets/images/categories/Icon_Other_TV_Wall_Mount.webp"
+import podium from "../assets/images/categories/ChatGPT_Image_Apr_15_2026_03_19_02_PM_copy.webp"
+import laptop from "../assets/images/categories/Icon_Laptop__Tablet_Mount.webp"
 const categories = [
 {
   name: 'TV Wall Mounts',
-  img: '/src/assets/images/categories/Icon_TV_Wall_Mount.webp',
+  img: {tv_mount},
   active: true
 },
 {
   name: 'Monitor & Desktop Mounts',
-  img: '/src/assets/images/categories/Icon_Desktop_Mount.webp'
+  img: {monitor_mount}
 },
 {
   name: 'Monitorized Mounts and Stands',
-  img: '/src/assets/images/categories/Icon_Motorized_Mount.webp'
+  img: {monitorized_mount}
 },
 {
   name: 'TV Floor Stands & Cart',
-  img: 'src/assets/images/categories/Icon_Floor_Stand.webp'
+  img: {tv_floor}
 },
 {
   name: 'TV Ceiling Mounts',
-  img: '/src/assets/images/categories/Icon_TV_Ceiling_Mount.webp'
+  img: {tv_ceiling}
 },
 {
   name: 'Television',
-  img: '/src/assets/images/categories/Icon_Television.webp',
+  img: {tv}
 },
 {
   name: 'Kiosk Screen',
-  img: '/src/assets/images/categories/Icon_Kiosk_Stand.webp'
+  img: {kiosk}
 },
 {
   name: 'LED Display',
-  img: '/src/assets/images/categories/Icon_LED_Display.webp'
+  img: {led}
 },
 {
   name: 'Projector Screens',
-  img: '/src/assets/images/categories/Icon_Projector_Screen.webp'
+  img: {proj_screen}
 },
 {
   name: 'Projector Mounts',
-  img: '/src/assets/images/categories/Icon_Projector_Mount.webp'
+  img: {proj_mount}
 },
 {
   name: 'Gaming',
-  img: 'src/assets/images/categories/Icon_Gaming_Chair.webp'
+  img: {gaming}
 },
 {
   name: 'POS Mounts',
-  img: '/src/assets/images/categories/Icon_POS_Stand.webp'
+  img: {pos}
 },
 {
   name: 'Video Wall Mounts',
-  img: '/src/assets/images/categories/Icon_Video_Wall_Mount.webp'
+  img: {video}
 },
 {
   name: 'HDMI Cables',
-  img: '/src/assets/images/categories/Icon_HDMI_Cables.webp'
+  img: {hdmi}
 },
 {
   name: 'DVD / Receiver & CPU Mounts',
-  img: '/src/assets/images/categories/Icon_DVD_-_Recevier_Mount.webp'
+  img: {dvd}
 },
 {
   name: 'CCTV Camera Brackets',
-  img: '/src/assets/images/categories/Icon_CCTV_Brackets.webp'
+  img: {cctv}
 },
 {
   name: 'AC Brackets',
-  img: '/src/assets/images/categories/Icon_AC_Brackets.webp'
+  img: {ac}
 },
 {
   name: 'Other Mounts & Accessories',
-  img: '/src/assets/images/categories/Icon_Other_TV_Wall_Mount.webp'
+  img: {other}
 },
 {
   name: 'Podium Screens',
-  img: '/src/assets/images/categories/ChatGPT_Image_Apr_15_2026_03_19_02_PM_copy.webp'
+  img: {podium}
 },
 {
   name: 'Laptop & Tablet Stands',
-  img: '/src/assets/images/categories/Icon_Laptop__Tablet_Mount.webp'
+  img: {laptop}
 }
 ];
 

@@ -1,71 +1,87 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import one from "../assets/images/categories/Icon_AC_Brackets.webp"
+import two from "../assets/images/categories/Icon_CCTV_Brackets.webp"
+import three from "../assets/images/categories/Icon_Desktop_Mount.webp"
+import four from "../assets/images/categories/Icon_Floor_Stand.webp"
+import five from "../assets/images/categories/Icon_Laptop__Tablet_Mount.webp"
+import six from "../assets/images/categories/Icon_Kiosk_Stand.webp"
+import seven from "../assets/images/categories/ChatGPT_Image_Apr_15_2026_03_19_02_PM_copy.webp"
+import eight from "../assets/images/categories/Icon_Projector_Mount.webp"
+import nine from "../assets/images/categories/Icon_Projector_Screen.webp"
+import ten from "../assets/images/categories/Icon_LED_Display.webp"
+import eleven from "../assets/images/categories/Icon_Television.webp"
+import twelve from "../assets/images/categories/Icon_Television.webp"
+import thirteen from "../assets/images/categories/Icon_POS_Stand.webp"
+import fourteen from "../assets/images/categories/Icon_LED_Display.webp"
+import fifteen from "../assets/images/categories/Icon_Gaming_Chair.webp"
+import sixteen from "../assets/images/categories/Icon_Other_TV_Wall_Mount.webp"
 
 const squareData = [
   {
     id: 1,
-    src: "/src/assets/images/categories/Icon_AC_Brackets.webp",
+    src: {one},
   },
   {
     id: 2,
-    src: "/src/assets/images/categories/Icon_CCTV_Brackets.webp",
+    src: {two}
   },
   {
     id: 3,
-    src: "/src/assets/images/categories/Icon_Desktop_Mount.webp",
+    src: {three},
   },
   {
     id: 4,
-    src: "/src/assets/images/categories/Icon_Floor_Stand.webp",
+    src: {four},
   },
   {
     id: 5,
-    src: "/src/assets/images/categories/Icon_Laptop__Tablet_Mount.webp",
+    src: {five},
   },
   {
     id: 6,
-    src: "/src/assets/images/categories/Icon_Kiosk_Stand.webp",
+    src: {six},
   },
   {
     id: 7,
-    src: "/src/assets/images/categories/ChatGPT_Image_Apr_15_2026_03_19_02_PM_copy.webp",
+    src: {seven},
   },
   {
     id: 8,
-    src: "/src/assets/images/categories/Icon_Projector_Mount.webp",
+    src: {eight},
   },
   {
     id: 9,
-    src: "/src/assets/images/categories/Icon_Projector_Screen.webp",
+    src: {nine},
   },
   {
     id: 10,
-    src: "/src/assets/images/categories/Icon_LED_Display.webp",
+    src: {ten},
   },
   {
     id: 11,
-    src: "/src/assets/images/categories/Icon_Television.webp",
+    src: {eleven},
   },
   {
     id: 12,
-    src: "/src/assets/images/categories/Icon_Television.webp",
+    src: {twelve},
   },
   {
     id: 13,
-    src: "/src/assets/images/categories/Icon_POS_Stand.webp",
+    src: {thirteen},
   },
   {
     id: 14,
-    src: "/src/assets/images/categories/Icon_LED_Display.webp",
+    src: {fourteen},
   },
   {
     id: 15,
-    src: "/src/assets/images/categories/Icon_Gaming_Chair.webp",
+    src: {fifteen},
   },
   {
     id: 16,
-    src: "/src/assets/images/categories/Icon_Other_TV_Wall_Mount.webp",
+    src: {sixteen},
   },
 ];
 
