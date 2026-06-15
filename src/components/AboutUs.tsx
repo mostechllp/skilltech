@@ -2,6 +2,8 @@ import React from "react";
 import { PlayCircle } from "lucide-react";
 import { SectionHeading } from "./ui/SectionHeading";
 import { motion } from "framer-motion";
+import about1 from "../assets/images/about_us/about1.webp"
+import about2 from "../assets/images/about_us/about2.webp"
 export function AboutUs() {
   return (
     <section className="py-20 bg-lavender-light">
@@ -19,7 +21,7 @@ export function AboutUs() {
               {/* Top Left Image */}
               <div className="rounded-[30px] overflow-hidden shadow-lg h-64">
                 <img
-                  src="/src/assets/images/about_us/about2.webp"
+                  src={about1}
                   alt=""
                   className="w-full h-full object-cover"
                 />
@@ -33,7 +35,7 @@ export function AboutUs() {
               {/* Bottom Full Width Image */}
               <div className="col-span-2 rounded-[30px] overflow-hidden shadow-lg h-72">
                 <img
-                  src="/src/assets/images/about_us/about1.webp"
+                  src={about2}
                   alt=""
                   className="w-full h-full object-cover"
                 />

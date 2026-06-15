@@ -4,6 +4,15 @@ import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
 
+import product_sh_126p from "../assets/images/products/TV_wall_mount/SH-126P.webp";
+import product_sh_360r from "../assets/images/products/TV_wall_mount/SH-360R.webp";
+import product_sh_380p from "../assets/images/products/TV_wall_mount/SH-380P.webp";
+import product_sh_1015p from "../assets/images/products/TV_wall_mount/SH-1015P.webp";
+import product_pm_75fw from "../assets/images/products/TV_wall_mount/PM-75FW.webp";
+import product_p6 from "../assets/images/products/TV_wall_mount/P6.webp";
+import product_sh_34p from "../assets/images/products/TV_wall_mount/SH-34P.webp";
+import product_sh_4280lf from "../assets/images/products/TV_wall_mount/SH-4280UF.webp";
+
 const filters = [
   'TV Wall Mounts',
   'Monitor & Desktop Mounts',
@@ -28,43 +37,43 @@ const products = [
   {
     id: 'SH 126P',
     name: 'Heavy-Duty Full-Motion TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/SH-126P.webp'
+    img: product_sh_126p
   },
   {
     id: 'SH 360R',
     name: '360° Rotate Wall Mount For Flat Panel Display TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/SH-360R.webp'
+    img: product_sh_360r
   },
   {
     id: 'SH 380P',
     name: 'Premium Heavy Duty Full Motion Wall Mount For Large Screen TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/SH-380P.webp'
+    img: product_sh_380p
   },
   {
     id: 'SH 1015P',
     name: 'Extra Long Single Arm Full-Motion TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/SH-1015P.webp'
+    img: product_sh_1015p
   },
   {
     id: 'PM 75FW',
     name: 'Fixed TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/PM-75FW.webp',
+    img: product_pm_75fw,
     badge: 'ECONOMIC SERIES'
   },
   {
     id: 'P6',
     name: 'Ultra Slim Double Arm Full Motion TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/P6.webp'
+    img: product_p6
   },
   {
     id: 'SH 34P',
     name: 'Super Economy Full-Motion TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/SH-34P.webp'
+    img: product_sh_34p
   },
   {
     id: 'SH 4280LF',
     name: 'Ultra Thin Fixed TV Wall Mount',
-    img: '/src/assets/images/products/TV_wall_mount/SH-4280UF.webp'
+    img: product_sh_4280lf
   }
 ];
 

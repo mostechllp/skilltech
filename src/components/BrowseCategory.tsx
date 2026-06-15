@@ -26,84 +26,84 @@ import laptop from "../assets/images/categories/Icon_Laptop__Tablet_Mount.webp"
 const categories = [
 {
   name: 'TV Wall Mounts',
-  img: {tv_mount},
+  img: tv_mount,
   active: true
 },
 {
   name: 'Monitor & Desktop Mounts',
-  img: {monitor_mount}
+  img: monitor_mount
 },
 {
   name: 'Monitorized Mounts and Stands',
-  img: {monitorized_mount}
+  img: monitorized_mount
 },
 {
   name: 'TV Floor Stands & Cart',
-  img: {tv_floor}
+  img: tv_floor
 },
 {
   name: 'TV Ceiling Mounts',
-  img: {tv_ceiling}
+  img: tv_ceiling
 },
 {
   name: 'Television',
-  img: {tv}
+  img: tv
 },
 {
   name: 'Kiosk Screen',
-  img: {kiosk}
+  img: kiosk
 },
 {
   name: 'LED Display',
-  img: {led}
+  img: led
 },
 {
   name: 'Projector Screens',
-  img: {proj_screen}
+  img: proj_screen
 },
 {
   name: 'Projector Mounts',
-  img: {proj_mount}
+  img: proj_mount
 },
 {
   name: 'Gaming',
-  img: {gaming}
+  img: gaming
 },
 {
   name: 'POS Mounts',
-  img: {pos}
+  img: pos
 },
 {
   name: 'Video Wall Mounts',
-  img: {video}
+  img: video
 },
 {
   name: 'HDMI Cables',
-  img: {hdmi}
+  img: hdmi
 },
 {
   name: 'DVD / Receiver & CPU Mounts',
-  img: {dvd}
+  img: dvd
 },
 {
   name: 'CCTV Camera Brackets',
-  img: {cctv}
+  img: cctv
 },
 {
   name: 'AC Brackets',
-  img: {ac}
+  img: ac
 },
 {
   name: 'Other Mounts & Accessories',
-  img: {other}
+  img: other
 },
 {
   name: 'Podium Screens',
-  img: {podium}
+  img: podium
 },
 {
   name: 'Laptop & Tablet Stands',
-  img: {laptop}
+  img: laptop
 }
 ];
 

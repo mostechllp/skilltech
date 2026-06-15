@@ -3,22 +3,27 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
+import project_abudhabi from "../assets/images/projects/Abu_Dhabi_Project_dd0AvS1.webp";
+import project_dubai_police from "../assets/images/projects/Dubai_Police_Project_hm5wCoq.webp";
+import project_kfc from "../assets/images/projects/KFC_Project.webp";
+
 const projects = [
-{
-  title: 'Abudhabi Air Port',
-  category: 'TV Installation Service',
-  img: '/src/assets/images/projects/Abu_Dhabi_Project_dd0AvS1.webp'
-},
-{
-  title: 'Dubai Police',
-  category: 'TV Installation Service',
-  img: '/src/assets/images/projects/Dubai_Police_Project_hm5wCoq.webp'
-},
-{
-  title: 'KFC',
-  category: 'TV Installation Service',
-  img: '/src/assets/images/projects/KFC_Project.webp'
-}];
+  {
+    title: 'Abudhabi Air Port',
+    category: 'TV Installation Service',
+    img: project_abudhabi
+  },
+  {
+    title: 'Dubai Police',
+    category: 'TV Installation Service',
+    img: project_dubai_police
+  },
+  {
+    title: 'KFC',
+    category: 'TV Installation Service',
+    img: project_kfc
+  }
+];
 
 export function SignatureProjects() {
   return (

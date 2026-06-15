@@ -12,7 +12,7 @@ import eight from "../assets/images/categories/Icon_Projector_Mount.webp"
 import nine from "../assets/images/categories/Icon_Projector_Screen.webp"
 import ten from "../assets/images/categories/Icon_LED_Display.webp"
 import eleven from "../assets/images/categories/Icon_Television.webp"
-import twelve from "../assets/images/categories/Icon_Television.webp"
+import twelve from "../assets/images/categories/Icon_Motorized_Mount.webp"
 import thirteen from "../assets/images/categories/Icon_POS_Stand.webp"
 import fourteen from "../assets/images/categories/Icon_LED_Display.webp"
 import fifteen from "../assets/images/categories/Icon_Gaming_Chair.webp"
@@ -21,67 +21,67 @@ import sixteen from "../assets/images/categories/Icon_Other_TV_Wall_Mount.webp"
 const squareData = [
   {
     id: 1,
-    src: {one},
+    src: one,
   },
   {
     id: 2,
-    src: {two}
+    src: two
   },
   {
     id: 3,
-    src: {three},
+    src: three,
   },
   {
     id: 4,
-    src: {four},
+    src: four,
   },
   {
     id: 5,
-    src: {five},
+    src: five,
   },
   {
     id: 6,
-    src: {six},
+    src: six,
   },
   {
     id: 7,
-    src: {seven},
+    src: seven,
   },
   {
     id: 8,
-    src: {eight},
+    src: eight,
   },
   {
     id: 9,
-    src: {nine},
+    src: nine,
   },
   {
     id: 10,
-    src: {ten},
+    src: ten,
   },
   {
     id: 11,
-    src: {eleven},
+    src: eleven,
   },
   {
     id: 12,
-    src: {twelve},
+    src: twelve,
   },
   {
     id: 13,
-    src: {thirteen},
+    src: thirteen,
   },
   {
     id: 14,
-    src: {fourteen},
+    src: fourteen,
   },
   {
     id: 15,
-    src: {fifteen},
+    src: fifteen,
   },
   {
     id: 16,
-    src: {sixteen},
+    src: sixteen,
   },
 ];
 

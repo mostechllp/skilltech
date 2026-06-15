@@ -2,6 +2,8 @@ import React from 'react';
 import { PlayCircle } from 'lucide-react';
 import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
+import service1 from "../assets/images/services/service1.webp"
+import service2 from "../assets/images/services/service2.webp"
 export function Services() {
   return (
     <section className="py-20 bg-lavender-light">
@@ -69,7 +71,7 @@ export function Services() {
               {/* Top Left Image */}
               <div className="rounded-[30px] overflow-hidden shadow-lg h-64">
                 <img
-                  src="/src/assets/images/services/service1.webp"
+                  src={service1}
                   alt=""
                   className="w-full h-full object-cover"
                 />
@@ -85,7 +87,7 @@ export function Services() {
               {/* Bottom Full Width Image */}
               <div className="col-span-2 rounded-[30px] overflow-hidden shadow-lg h-72">
                 <img
-                  src="/src/assets/images/services/service2.webp"
+                  src={service2}
                   alt=""
                   className="w-full h-full object-cover"
                 />

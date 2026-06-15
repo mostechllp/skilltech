@@ -3,71 +3,40 @@ import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
 
+import partner_al_futtaim from "../assets/images/partners/Al_Futtaim.webp";
+import partner_aloft from "../assets/images/partners/Aloft.webp";
+import partner_ansar_mall from "../assets/images/partners/Ansar_Mall.webp";
+import partner_carillion from "../assets/images/partners/Carillion.webp";
+import partner_carrefour from "../assets/images/partners/Carrefour.webp";
+import partner_dp_world from "../assets/images/partners/DP_World.webp";
+import partner_dubai_autodrome from "../assets/images/partners/Dubai_Autodrome.webp";
+import partner_dubai_police from "../assets/images/partners/Dubai_Police.webp";
+import partner_emax from "../assets/images/partners/Emax_kkfHNsD.webp";
+import partner_eros from "../assets/images/partners/Eros_Digital_Home.webp";
+import partner_harman from "../assets/images/partners/Harman_House.webp";
+import partner_jumbo from "../assets/images/partners/Jumbo.webp";
+import partner_lulu from "../assets/images/partners/lulu.webp";
+import partner_movenpick from "../assets/images/partners/MovenPick.webp";
+import partner_sharaf_dg from "../assets/images/partners/Sharaf_DG.webp";
+import partner_trigon from "../assets/images/partners/Trigon.webp";
+
 const partners = [
-  {
-    name: 'Al Futtaim',
-    logo: '/src/assets/images/partners/Al_Futtaim.webp'
-  },
-  {
-    name: 'Aloft',
-    logo: '/src/assets/images/partners/Aloft.webp'
-  },
-  {
-    name: 'Ansar Mall',
-    logo: '/src/assets/images/partners/Ansar_Mall.webp'
-  },
-  {
-    name: 'Carillion',
-    logo: '/src/assets/images/partners/Carillion.webp'
-  },
-  {
-    name: 'Carrefour',
-    logo: '/src/assets/images/partners/Carrefour.webp'
-  },
-  {
-    name: 'DP World',
-    logo: '/src/assets/images/partners/DP_World.webp'
-  },
-  {
-    name: 'Dubai Autodrome',
-    logo: '/src/assets/images/partners/Dubai_Autodrome.webp'
-  },
-  {
-    name: 'Dubai Police',
-    logo: '/src/assets/images/partners/Dubai_Police.webp'
-  },
-  {
-    name: 'Emax',
-    logo: '/src/assets/images/partners/Emax_kkfHNsD.webp'
-  },
-  {
-    name: 'Eros Digital Home',
-    logo: '/src/assets/images/partners/Eros_Digital_Home.webp'
-  },
-  {
-    name: 'Harman House',
-    logo: '/src/assets/images/partners/Harman_House.webp'
-  },
-  {
-    name: 'Jumbo',
-    logo: '/src/assets/images/partners/Jumbo.webp'
-  },
-  {
-    name: 'Lulu',
-    logo: '/src/assets/images/partners/lulu.webp'
-  },
-  {
-    name: 'MovenPick',
-    logo: '/src/assets/images/partners/MovenPick.webp'
-  },
-  {
-    name: 'Sharaf DG',
-    logo: '/src/assets/images/partners/Sharaf_DG.webp'
-  },
-  {
-    name: 'Trigon',
-    logo: '/src/assets/images/partners/Trigon.webp'
-  },
+  { name: 'Al Futtaim', logo: partner_al_futtaim },
+  { name: 'Aloft', logo: partner_aloft },
+  { name: 'Ansar Mall', logo: partner_ansar_mall },
+  { name: 'Carillion', logo: partner_carillion },
+  { name: 'Carrefour', logo: partner_carrefour },
+  { name: 'DP World', logo: partner_dp_world },
+  { name: 'Dubai Autodrome', logo: partner_dubai_autodrome },
+  { name: 'Dubai Police', logo: partner_dubai_police },
+  { name: 'Emax', logo: partner_emax },
+  { name: 'Eros Digital Home', logo: partner_eros },
+  { name: 'Harman House', logo: partner_harman },
+  { name: 'Jumbo', logo: partner_jumbo },
+  { name: 'Lulu', logo: partner_lulu },
+  { name: 'MovenPick', logo: partner_movenpick },
+  { name: 'Sharaf DG', logo: partner_sharaf_dg },
+  { name: 'Trigon', logo: partner_trigon }
 ];
 
 export function Partners() {
