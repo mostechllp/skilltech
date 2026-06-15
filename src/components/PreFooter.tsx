@@ -11,7 +11,6 @@ import {
   Linkedin,
   Youtube
 } from 'lucide-react';
-import qr from "../assets/images/qr/qr2.webp"
 import { PillBadge } from './ui/PillBadge';
 
 export function PreFooter() {
@@ -20,18 +19,8 @@ export function PreFooter() {
   return (
     <section className="py-16 bg-white relative z-10">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Column 1: Find Your Way */}
-          <div className="flex flex-col items-center md:items-start">
-            <PillBadge text={t('findYourWayToUs')} className="mb-6" />
-            <div className="bg-white p-4 rounded-3xl shadow-lg border border-slate-100 w-48 h-48 flex items-center justify-center">
-              <div>
-                <img src={qr} alt="QR Code" />
-              </div>
-            </div>
-          </div>
-
-          {/* Column 2: Let's Connect */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Column 1: Let's Connect */}
           <div>
             <h3 className="text-2xl font-bold text-navy mb-4">{t('letsConnect')}</h3>
             <p className="text-sm text-slate-600 mb-8 leading-relaxed">
@@ -119,7 +108,7 @@ export function PreFooter() {
             </div>
           </div>
 
-          {/* Column 3: Form */}
+          {/* Column 2: Form */}
           <div>
             <div className="bg-white rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.05)] p-8 border border-slate-50">
               <div className="flex items-center justify-center mb-6">
@@ -128,12 +117,12 @@ export function PreFooter() {
                   className="!bg-transparent !border-none !shadow-none"
                 />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-6">
+              <h3 className="text-xl font-bold text-navy mb-6 text-center">
                 {t('sendUsMessage')}
               </h3>
 
               <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder={t('nameRequired')}
@@ -145,7 +134,7 @@ export function PreFooter() {
                     className="w-full px-4 py-2.5 rounded-full border border-slate-200 text-sm outline-none focus:border-pink-accent transition-colors"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="tel"
                     placeholder={t('phoneRequired')}
@@ -168,13 +157,15 @@ export function PreFooter() {
                   className="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm outline-none focus:border-pink-accent transition-colors resize-none"
                 />
 
-                <button
-                  type="button"
-                  className="flex items-center gap-2 bg-pink-accent text-white px-6 py-2.5 rounded-full hover:bg-pink-600 transition-colors shadow-md w-fit group"
-                >
-                  <PlayCircle className="w-4 h-4 fill-white/20 group-hover:translate-x-1 transition-transform" />
-                  <span className="font-medium text-sm">{t('submit')}</span>
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 bg-pink-accent text-white px-6 py-2.5 rounded-full hover:bg-pink-600 transition-colors shadow-md group"
+                  >
+                    <PlayCircle className="w-4 h-4 fill-white/20 group-hover:translate-x-1 transition-transform" />
+                    <span className="font-medium text-sm">{t('submit')}</span>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

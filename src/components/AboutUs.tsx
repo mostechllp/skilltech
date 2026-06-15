@@ -5,6 +5,7 @@ import { SectionHeading } from "./ui/SectionHeading";
 import { motion } from "framer-motion";
 import about1 from "../assets/images/about_us/about1.webp"
 import about2 from "../assets/images/about_us/about2.webp"
+import about3 from "../assets/images/about_us/about3.webp"
 
 export function AboutUs() {
   const { t } = useTranslation();
@@ -32,9 +33,12 @@ export function AboutUs() {
                 />
               </div>
 
-              {/* About Us Box */}
-              <div className="bg-pink-accent rounded-tl-[25px] rounded-tr-[50px] rounded-br-[25px] rounded-bl-[25px] md:rounded-tl-[40px] md:rounded-tr-[80px] md:rounded-br-[40px] md:rounded-bl-[40px] h-48 sm:h-56 md:h-64 flex items-center justify-center shadow-lg">
-                <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold">{t('aboutUs')}</h2>
+              <div className="rounded-[20px] md:rounded-[30px] overflow-hidden shadow-lg h-48 sm:h-56 md:h-64">
+                 <img
+                  src={about3}
+                  alt={t('aboutUs')}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Bottom Full Width Image */}
