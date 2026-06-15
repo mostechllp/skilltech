@@ -133,7 +133,7 @@ export function ProductGrid() {
     : filters;
 
   return (
-    <section className="py-12 md:py-20 bg-white container mx-auto px-4 md:px-8 relative">
+    <section className="py-12 md:py-20 bg-white container mx-auto px-4 md:px-8 relative  sm:px-6 lg:px-12 xl:px-16">
       <div className="mb-6 md:mb-8">
         <PillBadge text={t('ourProducts')} className="mb-3 md:mb-4" />
         <SectionHeading className="text-center md:text-left">{t('exploreOurProducts')}</SectionHeading>

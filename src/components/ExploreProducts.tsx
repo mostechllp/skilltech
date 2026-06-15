@@ -13,7 +13,7 @@ export function ExploreProducts() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-12 md:py-16 bg-white container mx-auto px-4 md:px-8">
+    <section className="py-12 md:py-16 bg-white container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="flex flex-col items-center md:items-end mb-6 md:mb-8">
         <PillBadge text={t('whatsNew')} className="mb-3 md:mb-4" />
         <SectionHeading align="center" className="w-full text-center md:text-right">

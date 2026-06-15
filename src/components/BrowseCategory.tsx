@@ -232,7 +232,7 @@ export function BrowseCategory() {
   };
 
   return (
-    <section id="browse-category" className="py-16 bg-white container mx-auto px-4 md:px-8">
+    <section id="browse-category" className="py-16 bg-white container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
           <PillBadge text={t('categories')} className="mb-4" />

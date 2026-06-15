@@ -47,7 +47,7 @@ export function Partners() {
   const duplicatedPartners = [...partners, ...partners, ...partners];
 
   return (
-    <section className="py-16 bg-white border-t border-slate-100 overflow-hidden">
+    <section className="py-16 bg-white border-t border-slate-100 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="container mx-auto px-4 md:px-8 flex flex-col items-center">
         <PillBadge text={t('thoseWhoTrustOurExpertise')} className="mb-4" />
         <SectionHeading align="center" className="mb-12">

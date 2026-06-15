@@ -80,7 +80,7 @@ export function StatsBand() {
 
   return (
     <section className="py-16 bg-lavender-light border-y border-white/50">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;

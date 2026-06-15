@@ -13,7 +13,7 @@ export function AboutUs() {
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-lavender-light">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-20">
           {/* Left Side - Images & Shape */}
           <motion.div

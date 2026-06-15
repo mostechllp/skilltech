@@ -14,6 +14,7 @@ import { Partners } from '../components/Partners';
 import { PreFooter } from '../components/PreFooter';
 import { Footer } from '../components/Footer';
 import { FloatingActions } from '../components/FloatingActions';
+import { VideoShowcase } from '../components/VideoShowcase';
 
 export function Home() {
   return (
@@ -28,6 +29,7 @@ export function Home() {
         <ProductGrid />
         <Services />
         <StatsBand />
+        <VideoShowcase/>
         <SignatureProjects />
         <Partners />
         <PreFooter />

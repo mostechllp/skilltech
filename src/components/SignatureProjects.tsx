@@ -45,7 +45,7 @@ export function SignatureProjects() {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-white container mx-auto px-4 md:px-8">
+    <section className="py-12 md:py-20 bg-white container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 md:mb-10 gap-4">
         <div className="flex gap-2 order-2 md:order-1 justify-center md:justify-start">
           <button 

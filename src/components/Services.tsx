@@ -5,6 +5,7 @@ import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
 import service1 from "../assets/images/services/service1.webp"
 import service2 from "../assets/images/services/service2.webp"
+import service3 from "../assets/images/services/service3.webp"
 
 export function Services() {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ export function Services() {
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-lavender-light">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-20">
           {/* Left Side - Content */}
           <motion.div
@@ -104,11 +105,12 @@ export function Services() {
                 />
               </div>
           
-              {/* Services Box */}
-              <div className="bg-pink-accent rounded-tl-[25px] rounded-tr-[50px] rounded-br-[25px] rounded-bl-[25px] md:rounded-tl-[40px] md:rounded-tr-[80px] md:rounded-br-[40px] md:rounded-bl-[40px] h-40 sm:h-48 md:h-56 lg:h-64 flex items-center justify-center shadow-lg">
-                <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
-                  {t('services')}
-                </h2>
+              <div className="rounded-[20px] md:rounded-[30px] overflow-hidden shadow-lg h-40 sm:h-48 md:h-56 lg:h-64">
+                <img
+                  src={service3}
+                  alt={t('services')}
+                  className="w-full h-full object-cover"
+                />
               </div>
           
               {/* Bottom Full Width Image */}

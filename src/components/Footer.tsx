@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="bg-[#3351a3] text-white pt-20 pb-6 relative z-0 -mt-10">
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
           {/* Logo & QR Code Column */}
           <div className="md:col-span-3">
