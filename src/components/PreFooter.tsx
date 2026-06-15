@@ -112,10 +112,6 @@ export function PreFooter() {
           <div>
             <div className="bg-white rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.05)] p-8 border border-slate-50">
               <div className="flex items-center justify-center mb-6">
-                <PillBadge
-                  text={t('thoseWhoTrustOur')}
-                  className="!bg-transparent !border-none !shadow-none"
-                />
               </div>
               <h3 className="text-xl font-bold text-navy mb-6 text-center">
                 {t('sendUsMessage')}
