@@ -1,4 +1,5 @@
 import React from 'react';
+import '../i18n'; // Import i18n configuration
 import { TopBar } from '../components/TopBar';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
@@ -13,12 +14,14 @@ import { Partners } from '../components/Partners';
 import { PreFooter } from '../components/PreFooter';
 import { Footer } from '../components/Footer';
 import { FloatingActions } from '../components/FloatingActions';
+
 export function Home() {
   return (
     <div className="min-h-screen bg-white font-sans overflow-x-hidden">
       <TopBar />
       <Header />
-      <main>
+      {/* Add padding-top to account for fixed TopBar (44px) + Header (72px) = 116px */}
+      <main className="pt-[116px] lg:pt-[120px]">
         <Hero />
         <BrowseCategory />
         <ExploreProducts />
@@ -32,6 +35,6 @@ export function Home() {
       </main>
       <Footer />
       <FloatingActions />
-    </div>);
-
+    </div>
+  );
 }

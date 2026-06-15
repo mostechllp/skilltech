@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
 import { motion } from 'framer-motion';
@@ -21,34 +22,36 @@ import partner_sharaf_dg from "../assets/images/partners/Sharaf_DG.webp";
 import partner_trigon from "../assets/images/partners/Trigon.webp";
 
 const partners = [
-  { name: 'Al Futtaim', logo: partner_al_futtaim },
-  { name: 'Aloft', logo: partner_aloft },
-  { name: 'Ansar Mall', logo: partner_ansar_mall },
-  { name: 'Carillion', logo: partner_carillion },
-  { name: 'Carrefour', logo: partner_carrefour },
-  { name: 'DP World', logo: partner_dp_world },
-  { name: 'Dubai Autodrome', logo: partner_dubai_autodrome },
-  { name: 'Dubai Police', logo: partner_dubai_police },
-  { name: 'Emax', logo: partner_emax },
-  { name: 'Eros Digital Home', logo: partner_eros },
-  { name: 'Harman House', logo: partner_harman },
-  { name: 'Jumbo', logo: partner_jumbo },
-  { name: 'Lulu', logo: partner_lulu },
-  { name: 'MovenPick', logo: partner_movenpick },
-  { name: 'Sharaf DG', logo: partner_sharaf_dg },
-  { name: 'Trigon', logo: partner_trigon }
+  { nameKey: 'alFuttaim', logo: partner_al_futtaim },
+  { nameKey: 'aloft', logo: partner_aloft },
+  { nameKey: 'ansarMall', logo: partner_ansar_mall },
+  { nameKey: 'carillion', logo: partner_carillion },
+  { nameKey: 'carrefour', logo: partner_carrefour },
+  { nameKey: 'dpWorld', logo: partner_dp_world },
+  { nameKey: 'dubaiAutodrome', logo: partner_dubai_autodrome },
+  { nameKey: 'dubaiPolice', logo: partner_dubai_police },
+  { nameKey: 'emax', logo: partner_emax },
+  { nameKey: 'erosDigitalHome', logo: partner_eros },
+  { nameKey: 'harmanHouse', logo: partner_harman },
+  { nameKey: 'jumbo', logo: partner_jumbo },
+  { nameKey: 'lulu', logo: partner_lulu },
+  { nameKey: 'movenpick', logo: partner_movenpick },
+  { nameKey: 'sharafDg', logo: partner_sharaf_dg },
+  { nameKey: 'trigon', logo: partner_trigon }
 ];
 
 export function Partners() {
+  const { t } = useTranslation();
+  
   // Duplicate partners for seamless infinite scroll
   const duplicatedPartners = [...partners, ...partners, ...partners];
 
   return (
     <section className="py-16 bg-white border-t border-slate-100 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 flex flex-col items-center">
-        <PillBadge text="Those Who Trust Our Expertise" className="mb-4" />
+        <PillBadge text={t('thoseWhoTrustOurExpertise')} className="mb-4" />
         <SectionHeading align="center" className="mb-12">
-          Our Partners & Collaborators
+          {t('ourPartnersAndCollaborators')}
         </SectionHeading>
 
         <div className="w-full relative">
@@ -65,13 +68,13 @@ export function Partners() {
                 >
                   <img
                     src={partner.logo}
-                    alt={partner.name}
+                    alt={t(partner.nameKey)}
                     className="max-w-full max-h-full object-contain"
                     onError={(e) => {
                       e.target.style.display = 'none';
                       const fallback = document.createElement('span');
                       fallback.className = 'text-slate-400 font-semibold text-sm';
-                      fallback.textContent = partner.name;
+                      fallback.textContent = t(partner.nameKey);
                       e.target.parentElement.appendChild(fallback);
                     }}
                   />
@@ -82,7 +85,7 @@ export function Partners() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes infiniteScroll {
           0% {
             transform: translateX(0);

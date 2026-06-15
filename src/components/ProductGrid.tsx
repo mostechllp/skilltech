@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { PlayCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
@@ -14,92 +15,93 @@ import product_sh_34p from "../assets/images/products/TV_wall_mount/SH-34P.webp"
 import product_sh_4280lf from "../assets/images/products/TV_wall_mount/SH-4280UF.webp";
 
 const filters = [
-  'TV Wall Mounts',
-  'Monitor & Desktop Mounts',
-  'Motorised Mount and Stands',
-  'TV Floor Stands & Cart',
-  'TV Ceiling Mounts',
-  'Television',
-  'Kiosk Screen',
-  'LED Display',
-  'AC Brackets',
-  'CCTV Camera Brackets',
-  'DVD / Receiver & CPU Mounts',
-  'HDMI Cables',
-  'Video Wall Mounts',
-  'POS Mounts',
-  'Gaming',
-  'Projector Mounts',
-  'Projector Screens'
+  { key: 'tvWallMounts', value: 'TV Wall Mounts' },
+  { key: 'monitorDesktopMounts', value: 'Monitor & Desktop Mounts' },
+  { key: 'motorizedMountsAndStands', value: 'Motorised Mount and Stands' },
+  { key: 'tvFloorStandsCart', value: 'TV Floor Stands & Cart' },
+  { key: 'tvCeilingMounts', value: 'TV Ceiling Mounts' },
+  { key: 'television', value: 'Television' },
+  { key: 'kioskScreen', value: 'Kiosk Screen' },
+  { key: 'ledDisplay', value: 'LED Display' },
+  { key: 'acBrackets', value: 'AC Brackets' },
+  { key: 'cctvCameraBrackets', value: 'CCTV Camera Brackets' },
+  { key: 'dvdReceiverCpuMounts', value: 'DVD / Receiver & CPU Mounts' },
+  { key: 'hdmiCables', value: 'HDMI Cables' },
+  { key: 'videoWallMounts', value: 'Video Wall Mounts' },
+  { key: 'posMounts', value: 'POS Mounts' },
+  { key: 'gaming', value: 'Gaming' },
+  { key: 'projectorMounts', value: 'Projector Mounts' },
+  { key: 'projectorScreens', value: 'Projector Screens' }
 ];
 
 const products = [
   {
     id: 'SH 126P',
-    name: 'Heavy-Duty Full-Motion TV Wall Mount',
+    nameKey: 'heavyDutyFullMotion',
     img: product_sh_126p
   },
   {
     id: 'SH 360R',
-    name: '360° Rotate Wall Mount For Flat Panel Display TV Wall Mount',
+    nameKey: 'rotateWallMount',
     img: product_sh_360r
   },
   {
     id: 'SH 380P',
-    name: 'Premium Heavy Duty Full Motion Wall Mount For Large Screen TV Wall Mount',
+    nameKey: 'premiumHeavyDuty',
     img: product_sh_380p
   },
   {
     id: 'SH 1015P',
-    name: 'Extra Long Single Arm Full-Motion TV Wall Mount',
+    nameKey: 'extraLongSingleArm',
     img: product_sh_1015p
   },
   {
     id: 'PM 75FW',
-    name: 'Fixed TV Wall Mount',
+    nameKey: 'fixedTVWallMount',
     img: product_pm_75fw,
-    badge: 'ECONOMIC SERIES'
+    badge: 'economicSeries'
   },
   {
     id: 'P6',
-    name: 'Ultra Slim Double Arm Full Motion TV Wall Mount',
+    nameKey: 'ultraSlimDoubleArm',
     img: product_p6
   },
   {
     id: 'SH 34P',
-    name: 'Super Economy Full-Motion TV Wall Mount',
+    nameKey: 'superEconomyFullMotion',
     img: product_sh_34p
   },
   {
     id: 'SH 4280LF',
-    name: 'Ultra Thin Fixed TV Wall Mount',
+    nameKey: 'ultraThinFixed',
     img: product_sh_4280lf
   }
 ];
 
 export function ProductGrid() {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('TV Wall Mounts');
   
   return (
     <section className="py-20 bg-white container mx-auto px-4 md:px-8 relative">
       <div className="mb-8">
-        <PillBadge text="Our Products" className="mb-4" />
-        <SectionHeading>Explore Our Products</SectionHeading>
+        <PillBadge text={t('ourProducts')} className="mb-4" />
+        <SectionHeading>{t('exploreOurProducts')}</SectionHeading>
       </div>
 
       {/* Filters */}
       <div className="flex flex-wrap gap-2 mb-12">
         {filters.map((filter) => (
           <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
+            key={filter.key}
+            onClick={() => setActiveFilter(filter.value)}
             className={`px-4 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-              activeFilter === filter 
+              activeFilter === filter.value 
                 ? 'bg-navy text-white border-navy' 
                 : 'bg-white text-slate-600 border-slate-200 hover:border-pink-accent hover:text-pink-accent'
             }`}
           >
-            {filter}
+            {t(filter.key)}
           </button>
         ))}
       </div>
@@ -135,7 +137,7 @@ export function ProductGrid() {
                            style={{
                              clipPath: 'polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%)'
                            }}>
-                        {product.badge}
+                        {t(product.badge)}
                       </div>
                       {/* Small triangle fold effect */}
                       <div className="absolute -bottom-1 left-0 w-2 h-2 bg-amber-700"
@@ -144,24 +146,13 @@ export function ProductGrid() {
                            }} />
                     </div>
                   </div>
-                  
-                  {/* Alternate badge design - ribbon style */}
-                  {/* <div className="absolute top-4 -left-2 z-10">
-                    <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[11px] font-bold px-4 py-1.5 shadow-md relative">
-                      {product.badge}
-                      <div className="absolute -bottom-1 left-0 w-2 h-2 bg-amber-700"
-                           style={{
-                             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%)'
-                           }} />
-                    </div>
-                  </div> */}
                 </>
               )}
 
               <div className="h-40 w-full mb-6 flex items-center justify-center p-4 mt-4">
                 <img
                   src={product.img}
-                  alt={product.name}
+                  alt={t(product.nameKey)}
                   className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -170,12 +161,12 @@ export function ProductGrid() {
                 {product.id}
               </h4>
               <p className="text-slate-600 text-xs mb-6 flex-grow">
-                {product.name}
+                {t(product.nameKey)}
               </p>
 
               <button className="flex items-center gap-2 border border-pink-accent/30 text-slate-700 px-4 py-1.5 rounded-full text-xs font-medium hover:bg-pink-accent hover:text-white hover:border-pink-accent transition-colors group/btn">
                 <PlayCircle className="w-4 h-4 text-pink-accent group-hover/btn:text-white transition-colors" />
-                View Details
+                {t('viewDetails')}
               </button>
             </motion.div>
           ))}
@@ -191,7 +182,7 @@ export function ProductGrid() {
 
         <button className="flex items-center gap-2 border border-pink-accent/30 text-slate-700 px-6 py-2 rounded-full text-sm font-medium hover:bg-pink-accent hover:text-white hover:border-pink-accent transition-colors group">
           <PlayCircle className="w-5 h-5 text-pink-accent group-hover:text-white transition-colors" />
-          View More
+          {t('viewMore')}
         </button>
       </div>
     </section>

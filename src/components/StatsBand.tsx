@@ -1,50 +1,54 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Users, Package, ThumbsUp, Clock, Globe } from 'lucide-react';
-const stats = [
-{
-  icon: Briefcase,
-  value: 50,
-  suffix: 'K+',
-  label: 'Projects'
-},
-{
-  icon: Users,
-  value: 200,
-  suffix: '+',
-  label: 'Expert Staffs'
-},
-{
-  icon: Package,
-  value: 1200,
-  suffix: '+',
-  label: 'Quality Products'
-},
-{
-  icon: ThumbsUp,
-  value: 50,
-  suffix: 'K+',
-  label: 'Satisfied Customer'
-},
-{
-  icon: Clock,
-  value: 15,
-  suffix: '+',
-  label: 'Years of Experience'
-},
-{
-  icon: Globe,
-  value: 10,
-  suffix: '+',
-  label: 'Countries Served'
-}];
 
-function CountUp({ end, suffix }: {end: number;suffix: string;}) {
+const stats = [
+  {
+    icon: Briefcase,
+    value: 50,
+    suffix: 'K+',
+    labelKey: 'projects'
+  },
+  {
+    icon: Users,
+    value: 200,
+    suffix: '+',
+    labelKey: 'expertStaffs'
+  },
+  {
+    icon: Package,
+    value: 1200,
+    suffix: '+',
+    labelKey: 'qualityProducts'
+  },
+  {
+    icon: ThumbsUp,
+    value: 50,
+    suffix: 'K+',
+    labelKey: 'satisfiedCustomer'
+  },
+  {
+    icon: Clock,
+    value: 15,
+    suffix: '+',
+    labelKey: 'yearsOfExperience'
+  },
+  {
+    icon: Globe,
+    value: 10,
+    suffix: '+',
+    labelKey: 'countriesServed'
+  }
+];
+
+function CountUp({ end, suffix }: { end: number; suffix: string; }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true
   });
+  
   useEffect(() => {
     if (isInView) {
       let start = 0;
@@ -62,14 +66,18 @@ function CountUp({ end, suffix }: {end: number;suffix: string;}) {
       return () => clearInterval(timer);
     }
   }, [end, isInView]);
+  
   return (
     <span ref={ref}>
       {count}
       {suffix}
-    </span>);
-
+    </span>
+  );
 }
+
 export function StatsBand() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 bg-lavender-light border-y border-white/50">
       <div className="container mx-auto px-4 md:px-8">
@@ -79,22 +87,12 @@ export function StatsBand() {
             return (
               <motion.div
                 key={idx}
-                initial={{
-                  opacity: 0,
-                  y: 20
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0
-                }}
-                viewport={{
-                  once: true
-                }}
-                transition={{
-                  delay: idx * 0.1
-                }}
-                className="flex flex-col items-center text-center">
-                
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center text-center"
+              >
                 <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 relative">
                   <div className="absolute inset-1 bg-lavender-alt rounded-full flex items-center justify-center">
                     <Icon className="w-6 h-6 text-pink-accent" />
@@ -104,13 +102,13 @@ export function StatsBand() {
                   <CountUp end={stat.value} suffix={stat.suffix} />
                 </h3>
                 <p className="text-xs text-slate-600 font-medium">
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </p>
-              </motion.div>);
-
+              </motion.div>
+            );
           })}
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

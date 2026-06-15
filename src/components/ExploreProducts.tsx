@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { PlayCircle } from 'lucide-react';
 import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
@@ -9,12 +10,14 @@ import floorStand from '../assets/images/product_thumbnail/image.webp';
 import ergonomic from '../assets/images/product_thumbnail/Ergonomic_Mount.webp';
 
 export function ExploreProducts() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 bg-white container mx-auto px-4 md:px-8">
       <div className="flex flex-col items-end mb-8">
-        <PillBadge text="What's New" className="mb-4" />
+        <PillBadge text={t('whatsNew')} className="mb-4" />
         <SectionHeading align="center" className="w-full text-right">
-          Explore the Products
+          {t('exploreTheProducts')}
         </SectionHeading>
       </div>
 
@@ -37,17 +40,17 @@ export function ExploreProducts() {
           <div className="aspect-[4/5] md:aspect-auto md:h-full w-full">
             <img
               src={image1}
-              alt="TV Wall Mounts"
+              alt={t('tvWallMounts')}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
             <h3 className="text-white text-3xl font-bold mb-4">
-              TV Wall Mounts
+              {t('tvWallMounts')}
             </h3>
             <button className="flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full w-fit hover:bg-pink-accent hover:border-pink-accent transition-colors group/btn">
-              <span className="text-sm font-medium">Explore</span>
+              <span className="text-sm font-medium">{t('explore')}</span>
               <PlayCircle className="w-4 h-4 text-pink-accent group-hover/btn:text-white transition-colors" />
             </button>
           </div>
@@ -76,19 +79,17 @@ export function ExploreProducts() {
             <div className="aspect-square sm:aspect-[4/3] w-full">
               <img
                 src={motorised}
-                alt="Motorised Wall Mounts"
+                alt={t('motorisedWallMounts')}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
               <h3 className="text-white text-xl font-bold mb-3">
-                Motorised Wall
-                <br />
-                Mounts
+                {t('motorisedWallMounts')}
               </h3>
               <button className="flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 rounded-full w-fit hover:bg-pink-accent hover:border-pink-accent transition-colors group/btn">
-                <span className="text-xs font-medium">Explore</span>
+                <span className="text-xs font-medium">{t('explore')}</span>
                 <PlayCircle className="w-3.5 h-3.5 text-pink-accent group-hover/btn:text-white transition-colors" />
               </button>
             </div>
@@ -115,17 +116,17 @@ export function ExploreProducts() {
             <div className="aspect-square sm:aspect-[4/3] w-full">
               <img
                 src={floorStand}
-                alt="Floor Stands"
+                alt={t('floorStands')}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
               <h3 className="text-white text-xl font-bold mb-3">
-                Floor Stands
+                {t('floorStands')}
               </h3>
               <button className="flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 rounded-full w-fit hover:bg-pink-accent hover:border-pink-accent transition-colors group/btn">
-                <span className="text-xs font-medium">Explore</span>
+                <span className="text-xs font-medium">{t('explore')}</span>
                 <PlayCircle className="w-3.5 h-3.5 text-pink-accent group-hover/btn:text-white transition-colors" />
               </button>
             </div>
@@ -152,17 +153,17 @@ export function ExploreProducts() {
             <div className="aspect-[2/1] sm:aspect-[3/1] w-full">
               <img
                 src={ergonomic}
-                alt="Ergonomic Mounts"
+                alt={t('ergonomicMounts')}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
               <h3 className="text-white text-2xl font-bold mb-3">
-                Ergonomic Mounts
+                {t('ergonomicMounts')}
               </h3>
               <button className="flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full w-fit hover:bg-pink-accent hover:border-pink-accent transition-colors group/btn">
-                <span className="text-sm font-medium">Explore</span>
+                <span className="text-sm font-medium">{t('explore')}</span>
                 <PlayCircle className="w-4 h-4 text-pink-accent group-hover/btn:text-white transition-colors" />
               </button>
             </div>

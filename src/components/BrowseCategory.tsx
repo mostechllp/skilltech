@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { PillBadge } from './ui/PillBadge';
 import { SectionHeading } from './ui/SectionHeading';
@@ -23,91 +24,93 @@ import ac from "../assets/images/categories/Icon_AC_Brackets.webp"
 import other from "../assets/images/categories/Icon_Other_TV_Wall_Mount.webp"
 import podium from "../assets/images/categories/ChatGPT_Image_Apr_15_2026_03_19_02_PM_copy.webp"
 import laptop from "../assets/images/categories/Icon_Laptop__Tablet_Mount.webp"
+
 const categories = [
-{
-  name: 'TV Wall Mounts',
-  img: tv_mount,
-  active: true
-},
-{
-  name: 'Monitor & Desktop Mounts',
-  img: monitor_mount
-},
-{
-  name: 'Monitorized Mounts and Stands',
-  img: monitorized_mount
-},
-{
-  name: 'TV Floor Stands & Cart',
-  img: tv_floor
-},
-{
-  name: 'TV Ceiling Mounts',
-  img: tv_ceiling
-},
-{
-  name: 'Television',
-  img: tv
-},
-{
-  name: 'Kiosk Screen',
-  img: kiosk
-},
-{
-  name: 'LED Display',
-  img: led
-},
-{
-  name: 'Projector Screens',
-  img: proj_screen
-},
-{
-  name: 'Projector Mounts',
-  img: proj_mount
-},
-{
-  name: 'Gaming',
-  img: gaming
-},
-{
-  name: 'POS Mounts',
-  img: pos
-},
-{
-  name: 'Video Wall Mounts',
-  img: video
-},
-{
-  name: 'HDMI Cables',
-  img: hdmi
-},
-{
-  name: 'DVD / Receiver & CPU Mounts',
-  img: dvd
-},
-{
-  name: 'CCTV Camera Brackets',
-  img: cctv
-},
-{
-  name: 'AC Brackets',
-  img: ac
-},
-{
-  name: 'Other Mounts & Accessories',
-  img: other
-},
-{
-  name: 'Podium Screens',
-  img: podium
-},
-{
-  name: 'Laptop & Tablet Stands',
-  img: laptop
-}
+  {
+    nameKey: 'tvWallMounts',
+    img: tv_mount,
+    active: true
+  },
+  {
+    nameKey: 'monitorDesktopMounts',
+    img: monitor_mount
+  },
+  {
+    nameKey: 'motorizedMountsAndStands',
+    img: monitorized_mount
+  },
+  {
+    nameKey: 'tvFloorStandsCart',
+    img: tv_floor
+  },
+  {
+    nameKey: 'tvCeilingMounts',
+    img: tv_ceiling
+  },
+  {
+    nameKey: 'television',
+    img: tv
+  },
+  {
+    nameKey: 'kioskScreen',
+    img: kiosk
+  },
+  {
+    nameKey: 'ledDisplay',
+    img: led
+  },
+  {
+    nameKey: 'projectorScreens',
+    img: proj_screen
+  },
+  {
+    nameKey: 'projectorMounts',
+    img: proj_mount
+  },
+  {
+    nameKey: 'gaming',
+    img: gaming
+  },
+  {
+    nameKey: 'posMounts',
+    img: pos
+  },
+  {
+    nameKey: 'videoWallMounts',
+    img: video
+  },
+  {
+    nameKey: 'hdmiCables',
+    img: hdmi
+  },
+  {
+    nameKey: 'dvdReceiverCpuMounts',
+    img: dvd
+  },
+  {
+    nameKey: 'cctvCameraBrackets',
+    img: cctv
+  },
+  {
+    nameKey: 'acBrackets',
+    img: ac
+  },
+  {
+    nameKey: 'otherMountsAccessories',
+    img: other
+  },
+  {
+    nameKey: 'podiumScreens',
+    img: podium
+  },
+  {
+    nameKey: 'laptopTabletStands',
+    img: laptop
+  }
 ];
 
 export function BrowseCategory() {
+  const { t } = useTranslation();
   const scrollContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
@@ -116,10 +119,8 @@ export function BrowseCategory() {
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
-      // Clear any existing auto-scroll timeout
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       
-      // Stop auto-scrolling temporarily
       setIsAutoScrolling(false);
       
       const scrollAmount = direction === 'left' ? -300 : 300;
@@ -128,7 +129,6 @@ export function BrowseCategory() {
         behavior: 'smooth'
       });
       
-      // Resume auto-scrolling after 5 seconds of inactivity
       timeoutRef.current = setTimeout(() => {
         setIsAutoScrolling(true);
       }, 5000);
@@ -162,10 +162,8 @@ export function BrowseCategory() {
     }
   }, [activeIndex]);
 
-  // Auto-scroll functionality
   useEffect(() => {
     if (isAutoScrolling && scrollContainerRef.current) {
-      // Clear any existing interval
       if (autoScrollIntervalRef.current) {
         clearInterval(autoScrollIntervalRef.current);
       }
@@ -176,26 +174,22 @@ export function BrowseCategory() {
           const maxScroll = container.scrollWidth - container.clientWidth;
           const currentScroll = container.scrollLeft;
           
-          // Get the width of one category item (with gap)
           const firstItem = container.children[0];
-          const itemWidth = firstItem ? firstItem.offsetWidth + 16 : 0; // 16px is the gap
+          const itemWidth = firstItem ? firstItem.offsetWidth + 16 : 0;
           
-          // Check if reached the end
           if (currentScroll + itemWidth >= maxScroll) {
-            // Reset to beginning
             container.scrollTo({
               left: 0,
               behavior: 'smooth'
             });
           } else {
-            // Scroll by one item's width at a time
             container.scrollBy({
               left: itemWidth,
               behavior: 'smooth'
             });
           }
         }
-      }, 2500); // Scroll every 2.5 seconds
+      }, 2500);
     }
     
     return () => {
@@ -205,11 +199,9 @@ export function BrowseCategory() {
     };
   }, [isAutoScrolling]);
 
-  // Update active category on scroll
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (container) {
-      // Use requestAnimationFrame for smoother updates
       let ticking = false;
       const handleScroll = () => {
         if (!ticking) {
@@ -222,7 +214,6 @@ export function BrowseCategory() {
       };
       
       container.addEventListener('scroll', handleScroll);
-      // Initial update
       updateActiveCategory();
       
       return () => {
@@ -231,7 +222,6 @@ export function BrowseCategory() {
     }
   }, [updateActiveCategory]);
 
-  // Pause auto-scroll on hover
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setIsAutoScrolling(false);
@@ -245,8 +235,8 @@ export function BrowseCategory() {
     <section id="browse-category" className="py-16 bg-white container mx-auto px-4 md:px-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <PillBadge text="Categories" className="mb-4" />
-          <SectionHeading>Browse by Category</SectionHeading>
+          <PillBadge text={t('categories')} className="mb-4" />
+          <SectionHeading>{t('browseByCategory')}</SectionHeading>
         </div>
         <div className="flex gap-2">
           <button 
@@ -274,33 +264,19 @@ export function BrowseCategory() {
         {categories.map((cat, idx) => (
           <motion.div
             key={idx}
-            initial={{
-              opacity: 0,
-              y: 20
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }}
-            viewport={{
-              once: true
-            }}
-            transition={{
-              delay: idx * 0.01
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.01 }}
             onClick={() => {
               if (scrollContainerRef.current) {
-                // Clear auto-scroll timeout
                 if (timeoutRef.current) clearTimeout(timeoutRef.current);
                 
-                // Stop auto-scrolling
                 setIsAutoScrolling(false);
                 
-                // Scroll to selected category
                 const item = scrollContainerRef.current.children[idx];
                 item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 
-                // Resume auto-scrolling after 5 seconds
                 timeoutRef.current = setTimeout(() => {
                   setIsAutoScrolling(true);
                 }, 5000);
@@ -313,7 +289,7 @@ export function BrowseCategory() {
             <div className="h-24 w-full flex items-center justify-center mb-4">
               <img
                 src={cat.img}
-                alt={cat.name}
+                alt={t(cat.nameKey)}
                 className="max-h-full max-w-full object-contain mix-blend-multiply" 
               />
             </div>
@@ -321,7 +297,7 @@ export function BrowseCategory() {
               className={`text-xs md:text-sm text-center font-medium ${
                 activeIndex === idx ? 'text-pink-accent' : 'text-navy'
               }`}>
-              {cat.name}
+              {t(cat.nameKey)}
             </h3>
           </motion.div>
         ))}
