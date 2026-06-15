@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 // import fifteen from "../assets/images/categories/Icon_Gaming_Chair.webp";
 // import sixteen from "../assets/images/categories/Icon_Other_TV_Wall_Mount.webp";
 import heroVideo from "../assets/video/hero_video.mp4";
+import { VideoLoading } from "./VideoLoading";
 
 // const squareData = [
 //   { id: 1, src: one },
@@ -110,10 +111,26 @@ export function Hero() {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => console.log("Autoplay failed:", error));
+   useEffect(() => {
+    const videoElement = videoRef.current;
+    
+    if (videoElement) {
+      const handleCanPlay = () => {
+        setIsVideoReady(true);
+        videoElement.play().catch(error => console.log("Autoplay failed:", error));
+      };
+
+      videoElement.addEventListener('canplay', handleCanPlay);
+      
+      if (videoElement.readyState >= 3) {
+        handleCanPlay();
+      }
+
+      return () => {
+        videoElement.removeEventListener('canplay', handleCanPlay);
+      };
     }
   }, []);
 
@@ -134,29 +151,25 @@ export function Hero() {
           loop
           muted={isMuted}
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2"
+          className={`absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${
+            isVideoReady ? 'opacity-100' : 'opacity-0'
+          }`}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        {/* Darker Overlay for better text contrast, matching the site's style */}
+        
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      {/* Mute/Unmute Button */}
-      <button
-        onClick={toggleMute}
-        className="absolute bottom-6 right-6 z-20 bg-white/10 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/20 transition-all duration-300 focus:outline-none"
-        aria-label={isMuted ? "Unmute" : "Mute"}
-      >
-        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-      </button>
-
-      {/* Centered Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 py-12 sm:py-20 text-center">
+      {/* Content - Fades in after video is ready */}
+      <div className={`relative z-10 container mx-auto px-4 md:px-8 py-12 sm:py-20 text-center transition-all duration-1000 ${
+        !isVideoReady ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+      }`}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
           <span className="inline-block mb-4 px-4 py-1 rounded-full bg-pink-accent/20 backdrop-blur-sm text-pink-300 text-sm font-medium border border-pink-accent/30">
             {t("premiumMountingSolutions")}
@@ -185,10 +198,16 @@ export function Hero() {
         </motion.div>
       </div>
 
-       {/* Right Grid */}
-          {/* <div className="relative z-10">
-            <ShuffleGrid />
-          </div> */}
+      {/* Mute/Unmute Button */}
+      {isVideoReady && (
+        <button
+          onClick={toggleMute}
+          className="absolute bottom-6 right-6 z-20 bg-white/10 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/20 transition-all duration-300 focus:outline-none"
+          aria-label={isMuted ? "Unmute" : "Mute"}
+        >
+          {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+        </button>
+      )}
     </section>
   );
 }
