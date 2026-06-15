@@ -305,7 +305,7 @@ export function VideoShowcase() {
             href="https://www.youtube.com/@skilltech710/videos"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 bg-[#e6007e]  text-white px-6 py-2.5 rounded-full transition-colors"
           >
             <Youtube className="w-5 h-5" />
             View All Videos on YouTube
