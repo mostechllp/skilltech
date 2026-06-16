@@ -23,7 +23,7 @@ export function Footer() {
     <footer className="relative">
       {/* BLUE GRADIENT BACKGROUND - Starts behind the white section */}
       <div 
-        className="absolute inset-x-0 bottom-0 h-[600px]"
+        className="absolute inset-x-0 bottom-0 h-[2100px] md:h-[600px]"
         style={{
           background: 'linear-gradient(135deg, #28479D 0%, #3351A3 50%, #2D4B9F 100%)'
         }}
@@ -34,7 +34,7 @@ export function Footer() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0 pt-0">
             {/* Column 1: Quick Links */}
-            <div className="md:col-span-2 mt-12">
+            <div className="md:col-span-2 mt-4 md:mt-12">
               <img
                 src={logo}
                 alt="Skill Tech Logo"
@@ -67,7 +67,7 @@ export function Footer() {
             </div>
 
             {/* Column 2: Products Col 1 */}
-            <div className="md:col-span-2 mt-12 pt-[100px]">
+            <div className="md:col-span-2 mt-12 pt-[10px] md:pt-[100px]">
               <h4 className="text-lg font-bold text-white mb-6">{t('products')}</h4>
               <ul className="space-y-2.5">
                 {[
@@ -94,7 +94,7 @@ export function Footer() {
             </div>
 
             {/* Column 3: Products Col 2 */}
-            <div className="md:col-span-2 mt-12 pt-[100px]">
+            <div className="md:col-span-2 mt-12  pt-0 md:pt-[100px]">
               <h4 className="text-lg font-bold text-white mb-6 opacity-0 hidden md:block">
                 {t('products')}
               </h4>
@@ -124,11 +124,11 @@ export function Footer() {
             {/* Column 4: White Section Container - Now spans 6 columns */}
             <div className="md:col-span-6 mt-8">
               <div className="relative z-10 bg-white pt-8 pb-8 sm:px-6 md:px-8 lg:px-12 xl:px-6 rounded-[28px] shadow-lg">
-                <div className="container mx-auto">
+                <div className="container mx-auto ">
                   {/* Changed to grid with better column distribution */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Left side: Let's Connect */}
-                    <div>
+                    <div className="pl-5 md:pl-0">
                       <h3 className="text-2xl font-bold text-navy mb-3">{t('letsConnect')}</h3>
                       <p className="text-sm text-slate-600 mb-6 leading-relaxed">
                         {t('partnershipOpportunities')}
