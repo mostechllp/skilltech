@@ -15,6 +15,7 @@ import { PreFooter } from '../components/PreFooter';
 import { Footer } from '../components/Footer';
 import { FloatingActions } from '../components/FloatingActions';
 import { VideoShowcase } from '../components/VideoShowcase';
+import { CTASection } from '../components/CTASection';
 
 export function Home() {
   return (
@@ -26,13 +27,14 @@ export function Home() {
         <BrowseCategory />
         <ExploreProducts />
         <AboutUs />
+        <StatsBand />
         <ProductGrid />
         <Services />
-        <StatsBand />
         <VideoShowcase/>
         <SignatureProjects />
         <Partners />
-        <PreFooter />
+        <CTASection/>
+        {/* <PreFooter /> */}
       </main>
       <Footer />
       <FloatingActions />

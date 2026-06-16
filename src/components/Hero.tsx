@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Volume2, VolumeX } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import heroVideo from "../assets/video/hero_video.mp4";
+import heroVideo from "../assets/video/hero_video_1.mp4";
 
 export function Hero() {
   const { t } = useTranslation();

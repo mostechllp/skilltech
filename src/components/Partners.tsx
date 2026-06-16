@@ -1,3 +1,4 @@
+// Partners.jsx - Updated with reduced bottom padding
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PillBadge } from './ui/PillBadge';
@@ -43,19 +44,17 @@ const partners = [
 export function Partners() {
   const { t } = useTranslation();
   
-  // Duplicate partners for seamless infinite scroll
   const duplicatedPartners = [...partners, ...partners, ...partners];
 
   return (
-    <section className="py-16 bg-white border-t border-slate-100 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section className="py-8 md:py-10 pb-4 md:pb-6 bg-white border-t border-slate-100 overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <div className="container mx-auto px-4 md:px-8 flex flex-col items-center">
-        <PillBadge text={t('thoseWhoTrustOurExpertise')} className="mb-4" />
-        <SectionHeading align="center" className="mb-12">
+        <PillBadge text={t('thoseWhoTrustOurExpertise')} className="mb-3" />
+        <SectionHeading align="center" className="mb-6 md:mb-8">
           {t('ourPartnersAndCollaborators')}
         </SectionHeading>
 
         <div className="w-full relative">
-          {/* Gradient overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
           
@@ -69,7 +68,7 @@ export function Partners() {
                   <img
                     src={partner.logo}
                     alt={t(partner.nameKey)}
-                    className="max-w-full max-h-full object-contain"
+                    className="max-w-full max-h-full object-contain transition-all duration-300"
                     onError={(e) => {
                       e.target.style.display = 'none';
                       const fallback = document.createElement('span');

@@ -79,7 +79,7 @@ export function StatsBand() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-16 bg-lavender-light border-y border-white/50">
+    <section className="py-16 bg-[#3351a3] border-y border-white/50">
       <div className="container mx-auto px-4 md:px-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {stats.map((stat, idx) => {
@@ -98,10 +98,10 @@ export function StatsBand() {
                     <Icon className="w-6 h-6 text-pink-accent" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-navy mb-1">
+                <h3 className="text-2xl font-bold text-white mb-1">
                   <CountUp end={stat.value} suffix={stat.suffix} />
                 </h3>
-                <p className="text-xs text-slate-600 font-medium">
+                <p className="text-xs text-white font-medium">
                   {t(stat.labelKey)}
                 </p>
               </motion.div>
