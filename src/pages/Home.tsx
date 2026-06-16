@@ -25,8 +25,8 @@ export function Home() {
       <main>
         <Hero />
         <BrowseCategory />
-        <ExploreProducts />
         <AboutUs />
+        <ExploreProducts />
         <StatsBand />
         <ProductGrid />
         <Services />
