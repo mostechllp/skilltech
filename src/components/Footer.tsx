@@ -1,4 +1,4 @@
-// Footer.jsx - Updated version with reduced spacing
+// Footer.jsx - Updated with company name below logo
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -38,8 +38,11 @@ export function Footer() {
               <img
                 src={logo}
                 alt="Skill Tech Logo"
-                className="h-20 w-auto mb-6"
+                className="h-20 w-auto mb-2 mx-auto md:mx-0"
               />
+              <p className="text-white text-sm font-medium mb-6 text-center md:text-left">
+                Skill Tech Group of Companies
+              </p>
               <h4 className="text-lg font-bold text-white mb-6">{t('quickLinks')}</h4>
               <ul className="space-y-2.5">
                 {[
@@ -67,7 +70,7 @@ export function Footer() {
             </div>
 
             {/* Column 2: Products Col 1 */}
-            <div className="md:col-span-2 mt-12 pt-[10px] md:pt-[100px]">
+            <div className="md:col-span-2 mt-12 pt-[10px] md:pt-[155px]">
               <h4 className="text-lg font-bold text-white mb-6">{t('products')}</h4>
               <ul className="space-y-2.5">
                 {[
@@ -94,7 +97,7 @@ export function Footer() {
             </div>
 
             {/* Column 3: Products Col 2 */}
-            <div className="md:col-span-2 mt-12  pt-0 md:pt-[100px]">
+            <div className="md:col-span-2 mt-12 pt-0 md:pt-[155px]">
               <h4 className="text-lg font-bold text-white mb-6 opacity-0 hidden md:block">
                 {t('products')}
               </h4>
@@ -122,9 +125,9 @@ export function Footer() {
             </div>
 
             {/* Column 4: White Section Container - Now spans 6 columns */}
-            <div className="md:col-span-6 mt-8">
+            <div className="md:col-span-6 mt-10">
               <div className="relative z-10 bg-white pt-8 pb-8 sm:px-6 md:px-8 lg:px-12 xl:px-6 rounded-[28px] shadow-lg">
-                <div className="container mx-auto ">
+                <div className="container mx-auto">
                   {/* Changed to grid with better column distribution */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Left side: Let's Connect */}

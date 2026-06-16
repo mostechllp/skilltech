@@ -139,7 +139,7 @@
   "cctvCamera": "CCTV Camera Brackets",
   "otherMounts": "Other Mounts & Accessories",
   "readyWhenYouAre": "Ready when you are",
-  "getScreenMountedByExperts": "Get your screen mounted by the experts",
+  "getScreenMountedByExperts": "Get your screen mounted<br /> by the experts",
   "ctaDescription": "Book a professional TV & display installation today. Secure, durable mounts with clean cable management — backed by 10+ years of experience.",
   "certifiedTechnicians": "Certified technicians",
   "sameDayInstallation": "Same-day installation",
@@ -178,5 +178,6 @@
   "video5Title": "SH PAD06 Height Adjustable Universal Anti-Theft Tablet Floor Stand",
   "video5Desc": "Ergonomic monitor mounts for office",
   "video6Title": "SVW01 46T Landscape/Portrait Pop-Out Video Wall Mount",
-  "video6Desc": "Space-saving ceiling mount solutions"
+  "video6Desc": "Space-saving ceiling mount solutions",
+  "sisterConcerns": "Sister Concerns"
 }
