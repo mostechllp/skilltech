@@ -1,11 +1,8 @@
-// import React from 'react';
-// import { Home } from './pages/Home';
-// export function App() {
-//   return <Home />;
-// }
-
-function App() {
-  return (
+import React from 'react';
+import { Home } from './pages/Home';
+export function App() {
+  // return <Home />;
+   return (
     <div
       style={{
         height: "100vh",
@@ -22,5 +19,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
