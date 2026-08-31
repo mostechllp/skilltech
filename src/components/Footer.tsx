@@ -1,4 +1,4 @@
-// Footer.jsx - Updated with company name below logo
+// Footer.jsx - Updated with company name below logo and copyright in one line
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -293,10 +293,18 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Copyright */}
+          {/* Copyright - One line */}
           <div className="border-t border-white/10 mt-10 pt-6 text-center">
-            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              {t('copyright')}
+            <p className="text-xs md:text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
+              © {new Date().getFullYear()} All Rights Reserved &nbsp;|&nbsp; Developed by{' '}
+              <a
+                href="https://mostech.ae/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-pink-accent font-medium transition-colors hover:underline"
+              >
+                Mostech Business Solutions
+              </a>
             </p>
           </div>
         </div>
