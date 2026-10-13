@@ -51,7 +51,7 @@ function StatsCard() {
   return (
     <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
       {/* 
-        MOBILE: single-row strip, all stats fit, no header, no scroll
+        MOBILE: single-row strip, no header, no scroll
       */}
       <div className="sm:hidden">
         <div className="flex items-stretch justify-between">
@@ -86,37 +86,53 @@ function StatsCard() {
       </div>
 
       {/* 
-        DESKTOP: existing vertical list
+        DESKTOP: header + vertical list (hidden on mobile)
       */}
-      <div className="hidden sm:flex flex-col divide-y divide-white/10">
-        {statsData.map((stat, index) => {
-          const { count, ref } = useCountUp(stat.value, 2500);
-          const Icon = statIcons[index] || Briefcase;
-          return (
-            <div
-              key={index}
-              className="flex items-center justify-between py-3.5 first:pt-5 last:pb-0"
-            >
-              <div className="flex items-center gap-2.5">
-                <Icon className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
-                <span className="text-xs font-semibold text-gray-300 tracking-wider uppercase">
-                  {stat.label}
-                </span>
+      <div className="hidden sm:block">
+        {/* Card Header */}
+        <div className="flex flex-col items-center text-center pb-5 border-b border-white/10">
+          <div className="flex items-center gap-2 text-blue-400 mb-2">
+            <LayoutGrid className="w-4 h-4" />
+            <span className="text-xs font-semibold tracking-widest uppercase">
+              Our Impact
+            </span>
+          </div>
+          <h3 className="text-lg md:text-xl font-bold text-white">
+            Key Statistics
+          </h3>
+        </div>
+
+        {/* Stats List */}
+        <div className="flex flex-col divide-y divide-white/10">
+          {statsData.map((stat, index) => {
+            const { count, ref } = useCountUp(stat.value, 2500);
+            const Icon = statIcons[index] || Briefcase;
+            return (
+              <div
+                key={index}
+                className="flex items-center justify-between py-3.5 first:pt-5 last:pb-0"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Icon className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
+                  <span className="text-xs font-semibold text-gray-300 tracking-wider uppercase">
+                    {stat.label}
+                  </span>
+                </div>
+                <div className="flex items-baseline">
+                  <span
+                    ref={ref}
+                    className="text-xl md:text-2xl font-bold text-white"
+                  >
+                    {count}
+                  </span>
+                  <span className="text-base md:text-lg font-bold text-blue-400 ml-0.5">
+                    {stat.suffix}
+                  </span>
+                </div>
               </div>
-              <div className="flex items-baseline">
-                <span
-                  ref={ref}
-                  className="text-xl md:text-2xl font-bold text-white"
-                >
-                  {count}
-                </span>
-                <span className="text-base md:text-lg font-bold text-blue-400 ml-0.5">
-                  {stat.suffix}
-                </span>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
