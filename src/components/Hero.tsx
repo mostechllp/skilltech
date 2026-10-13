@@ -49,37 +49,60 @@ const statsData = [
 // --- Stats Portfolio Card ---
 function StatsCard() {
   return (
-    <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
-      {/* Card Header */}
-      <div className="flex flex-col items-center text-center pb-5 border-b border-white/10">
-        <div className="flex items-center gap-2 text-blue-400 mb-2">
-          <LayoutGrid className="w-4 h-4" />
-          <span className="text-xs font-semibold tracking-widest uppercase">
-            Our Impact
-          </span>
+    <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
+      {/* 
+        MOBILE: single-row strip, all stats fit, no header, no scroll
+      */}
+      <div className="sm:hidden">
+        <div className="flex items-stretch justify-between">
+          {statsData.map((stat, index) => {
+            const { count, ref } = useCountUp(stat.value, 2500);
+            return (
+              <div key={index} className="flex items-stretch flex-1 min-w-0">
+                <div className="flex flex-col items-center justify-center flex-1 min-w-0 px-1">
+                  <div className="flex items-baseline">
+                    <span
+                      ref={ref}
+                      className="text-xl font-extrabold text-white leading-none"
+                    >
+                      {count}
+                    </span>
+                    <span className="text-[11px] font-extrabold text-blue-400 ml-0.5">
+                      {stat.suffix}
+                    </span>
+                  </div>
+                  <span className="text-[8px] font-medium text-gray-400 tracking-wider uppercase mt-1.5 text-center leading-tight">
+                    {stat.label}
+                  </span>
+                </div>
+
+                {index < statsData.length - 1 && (
+                  <span className="w-px bg-white/15 self-stretch my-1"></span>
+                )}
+              </div>
+            );
+          })}
         </div>
-        <h3 className="text-lg md:text-xl font-bold text-white">
-          Key Statistics
-        </h3>
       </div>
 
-      {/* Stats List */}
-      <div className="flex flex-col divide-y divide-white/10">
+      {/* 
+        DESKTOP: existing vertical list
+      */}
+      <div className="hidden sm:flex flex-col divide-y divide-white/10">
         {statsData.map((stat, index) => {
           const { count, ref } = useCountUp(stat.value, 2500);
           const Icon = statIcons[index] || Briefcase;
-
           return (
             <div
               key={index}
               className="flex items-center justify-between py-3.5 first:pt-5 last:pb-0"
             >
-        <div className="flex items-center gap-2.5">
-  <Icon className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
-  <span className="text-[10px] md:text-xs font-semibold text-gray-300 tracking-wider uppercase">
-    {stat.label}
-  </span>
-</div>
+              <div className="flex items-center gap-2.5">
+                <Icon className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
+                <span className="text-xs font-semibold text-gray-300 tracking-wider uppercase">
+                  {stat.label}
+                </span>
+              </div>
               <div className="flex items-baseline">
                 <span
                   ref={ref}
@@ -107,7 +130,9 @@ export function Hero() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(error => console.log("Autoplay failed:", error));
+      videoRef.current
+        .play()
+        .catch((error) => console.log("Autoplay failed:", error));
     }
   }, []);
 
@@ -119,8 +144,7 @@ export function Hero() {
   };
 
   return (
-    // Locked to one viewport height, no scrolling
-    <section className="relative w-full h-screen overflow-hidden flex items-center px-5">
+    <section className="relative w-full min-h-screen lg:h-screen overflow-hidden flex items-center">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
@@ -139,9 +163,8 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 md:px-8 py-8 md:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           {/* LEFT: Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -149,25 +172,28 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="text-left"
           >
-
-            {/* Smaller headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+            {/* Headline */}
+            <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
               {t("fifteenYears")}
               <br />
               <span className="text-blue-400">{t("trustAndExcellence")}</span>
             </h1>
 
-            <p className="text-sm sm:text-base text-gray-300 mt-5 max-w-lg leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-300 mt-4 sm:mt-5 max-w-lg leading-relaxed">
               {t("heroDescription")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mt-7">
-              <button className="group bg-blue-500 hover:bg-blue-600 text-white px-7 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/25 text-sm font-medium">
+            {/* Buttons — full width on mobile */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-7">
+              <button className="group bg-blue-500 hover:bg-blue-600 text-white px-7 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/25 text-sm font-medium w-full sm:w-auto">
                 {t("exploreProducts")}
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </button>
 
-              <button className="border border-white/25 bg-white/5 backdrop-blur-sm hover:bg-white/15 text-white px-7 py-3 rounded-full transition-all duration-300 text-sm font-medium">
+              <button className="border border-white/25 bg-white/5 backdrop-blur-sm hover:bg-white/15 text-white px-7 py-3 rounded-full transition-all duration-300 text-sm font-medium w-full sm:w-auto">
                 {t("viewProjects")}
               </button>
             </div>
@@ -178,7 +204,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end w-full"
           >
             <StatsCard />
           </motion.div>
@@ -188,10 +214,14 @@ export function Hero() {
       {/* Mute Button */}
       <button
         onClick={toggleMute}
-        className="absolute bottom-6 right-6 z-20 bg-white/10 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/20 transition-all duration-300 focus:outline-none"
+        className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 bg-white/10 backdrop-blur-md p-2.5 sm:p-3 rounded-full text-white hover:bg-white/20 transition-all duration-300 focus:outline-none"
         aria-label={isMuted ? "Unmute" : "Mute"}
       >
-        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+        {isMuted ? (
+          <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" />
+        ) : (
+          <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
+        )}
       </button>
     </section>
   );
