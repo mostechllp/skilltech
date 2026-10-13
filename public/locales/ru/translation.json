@@ -189,5 +189,30 @@
   "video5Title": "Регулируемая по высоте универсальная антивандальная напольная стойка для планшетов SH PAD06",
   "video5Desc": "Эргономичные крепления для офисных мониторов",
   "video6Title": "Крепление для видеостены SH PAD06 46T",
-  "video6Desc": "Экономящие пространство решения для потолочного монтажа"
+  "video6Desc": "Экономящие пространство решения для потолочного монтажа",
+
+  "statProjectsLabel": "ЗАВЕРШЁННЫХ ПРОЕКТОВ",
+  "statStaffLabel": "ЭКСПЕРТНЫЙ ПЕРСОНАЛ",
+  "statProductsLabel": "ТОВАРОВ (SKU)",
+  "statCountriesLabel": "СТРАН ОБСЛУЖЕНО",
+  "statCustomersLabel": "ДОВОЛЬНЫХ КЛИЕНТОВ",
+
+  "statProjectsShort": "ПРОЕКТЫ",
+  "statStaffShort": "ПЕРСОНАЛ",
+  "statProductsShort": "ТОВАРЫ",
+  "statCountriesShort": "СТРАНЫ",
+  "statCustomersShort": "КЛИЕНТЫ",
+
+  "statProjectsSuffix": "M+",
+  "statStaffSuffix": "+",
+  "statProductsSuffix": "+",
+  "statCountriesSuffix": "+",
+  "statCustomersSuffix": "M+",
+
+  "ourImpact": "Наше Влияние",
+  "keyStatistics": "Ключевые Показатели",
+
+  "sisterConcerns": "Компании Группы",
+  "fifteenYears": "15 лет",
+"trustAndExcellence": "Доверия и Превосходства"
 }

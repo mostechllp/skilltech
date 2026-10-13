@@ -189,5 +189,30 @@
   "video5Title": "Suporte de Piso para Tablet Ajustável em Altura SH PAD06",
   "video5Desc": "Suportes ergonômicos para monitores de escritório",
   "video6Title": "Suporte de Videowall SH PAD06 46T",
-  "video6Desc": "Soluções de montagem no teto que economizam espaço"
+  "video6Desc": "Soluções de montagem no teto que economizam espaço",
+
+  "statProjectsLabel": "PROJETOS CONCLUÍDOS",
+  "statStaffLabel": "EQUIPE ESPECIALIZADA",
+  "statProductsLabel": "PRODUTOS (SKU)",
+  "statCountriesLabel": "PAÍSES ATENDIDOS",
+  "statCustomersLabel": "CLIENTES SATISFEITOS",
+
+  "statProjectsShort": "PROJETOS",
+  "statStaffShort": "EQUIPE",
+  "statProductsShort": "PRODUTOS",
+  "statCountriesShort": "PAÍSES",
+  "statCustomersShort": "CLIENTES",
+
+  "statProjectsSuffix": "M+",
+  "statStaffSuffix": "+",
+  "statProductsSuffix": "+",
+  "statCountriesSuffix": "+",
+  "statCustomersSuffix": "M+",
+
+  "ourImpact": "Nosso Impacto",
+  "keyStatistics": "Estatísticas Principais",
+
+  "sisterConcerns": "Empresas do Grupo",
+  "fifteenYears": "15 Anos de",
+"trustAndExcellence": "Confiança e Excelência"
 }

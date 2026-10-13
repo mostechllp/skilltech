@@ -37,17 +37,45 @@ function useCountUp(end: number, duration: number = 2000, start: number = 0) {
   return { count, ref };
 }
 
-// --- Stats Data ---
-const statsData = [
-  { value: 5, suffix: "M+", label: "PROJECTS COMPLETED" },
-  { value: 200, suffix: "+", label: "EXPERT STAFF" },
-  { value: 1200, suffix: "+", label: "PRODUCTS (SKU)" },
-  { value: 10, suffix: "+", label: "COUNTRIES SERVED" },
-  { value: 10, suffix: "M+", label: "SATISFIED CUSTOMERS" },
-];
+
 
 // --- Stats Portfolio Card ---
 function StatsCard() {
+  const { t } = useTranslation();
+
+  // --- Stats Data ---
+const statsData = [
+    {
+      value: 5,
+      suffix: t("statProjectsSuffix"),
+      label: t("statProjectsLabel"),
+      shortLabel: t("statProjectsShort"),
+    },
+    {
+      value: 200,
+      suffix: t("statStaffSuffix"),
+      label: t("statStaffLabel"),
+      shortLabel: t("statStaffShort"),
+    },
+    {
+      value: 1200,
+      suffix: t("statProductsSuffix"),
+      label: t("statProductsLabel"),
+      shortLabel: t("statProductsShort"),
+    },
+    {
+      value: 10,
+      suffix: t("statCountriesSuffix"),
+      label: t("statCountriesLabel"),
+      shortLabel: t("statCountriesShort"),
+    },
+    {
+      value: 10,
+      suffix: t("statCustomersSuffix"),
+      label: t("statCustomersLabel"),
+      shortLabel: t("statCustomersShort"),
+    },
+  ];
   return (
     <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
       {/* 
@@ -94,11 +122,11 @@ function StatsCard() {
           <div className="flex items-center gap-2 text-blue-400 mb-2">
             <LayoutGrid className="w-4 h-4" />
             <span className="text-xs font-semibold tracking-widest uppercase">
-              Our Impact
+              {t("ourImpact")}
             </span>
           </div>
           <h3 className="text-lg md:text-xl font-bold text-white">
-            Key Statistics
+            {t("keyStatistics")}
           </h3>
         </div>
 
@@ -189,11 +217,11 @@ export function Hero() {
             className="text-left"
           >
             {/* Headline */}
-            <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+            <h5 className="text-[28px] sm:text-4xl md:text-5xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight">
               {t("fifteenYears")}
               <br />
               <span className="text-blue-400">{t("trustAndExcellence")}</span>
-            </h1>
+            </h5>
 
             <p className="text-sm sm:text-base text-gray-300 mt-4 sm:mt-5 max-w-lg leading-relaxed">
               {t("heroDescription")}

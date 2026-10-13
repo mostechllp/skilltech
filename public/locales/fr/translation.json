@@ -189,5 +189,30 @@
   "video5Title": "Support au Sol pour Tablette Réglable en Hauteur SH PAD06",
   "video5Desc": "Supports ergonomiques pour moniteurs de bureau",
   "video6Title": "Support de Mur Vidéo SH PAD06 46T",
-  "video6Desc": "Solutions de montage au plafond économes en espace"
+  "video6Desc": "Solutions de montage au plafond économes en espace",
+
+  "statProjectsLabel": "PROJETS RÉALISÉS",
+  "statStaffLabel": "PERSONNEL EXPERT",
+  "statProductsLabel": "PRODUITS (UGS)",
+  "statCountriesLabel": "PAYS DESSERVIS",
+  "statCustomersLabel": "CLIENTS SATISFAITS",
+
+  "statProjectsShort": "PROJETS",
+  "statStaffShort": "PERSONNEL",
+  "statProductsShort": "PRODUITS",
+  "statCountriesShort": "PAYS",
+  "statCustomersShort": "CLIENTS",
+
+  "statProjectsSuffix": "M+",
+  "statStaffSuffix": "+",
+  "statProductsSuffix": "+",
+  "statCountriesSuffix": "+",
+  "statCustomersSuffix": "M+",
+
+  "ourImpact": "Notre Impact",
+  "keyStatistics": "Statistiques Clés",
+
+  "sisterConcerns": "Sociétés du Groupe",
+  "fifteenYears": "15 Ans de",
+"trustAndExcellence": "Confiance et Excellence"
 }

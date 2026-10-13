@@ -182,5 +182,26 @@
   "video5Desc": "Ergonomic monitor mounts for office",
   "video6Title": "SVW01 46T Landscape/Portrait Pop-Out Video Wall Mount",
   "video6Desc": "Space-saving ceiling mount solutions",
-  "sisterConcerns": "Sister Concerns"
+  "sisterConcerns": "Sister Concerns",
+
+  "statProjectsLabel": "PROJECTS COMPLETED",
+  "statStaffLabel": "EXPERT STAFF",
+  "statProductsLabel": "PRODUCTS (SKU)",
+  "statCountriesLabel": "COUNTRIES SERVED",
+  "statCustomersLabel": "SATISFIED CUSTOMERS",
+
+  "statProjectsShort": "PROJECTS",
+  "statStaffShort": "STAFF",
+  "statProductsShort": "PRODUCTS",
+  "statCountriesShort": "COUNTRIES",
+  "statCustomersShort": "CUSTOMERS",
+
+  "statProjectsSuffix": "M+",
+  "statStaffSuffix": "+",
+  "statProductsSuffix": "+",
+  "statCountriesSuffix": "+",
+  "statCustomersSuffix": "M+",
+
+  "ourImpact": "Our Impact",
+  "keyStatistics": "Key Statistics"
 }

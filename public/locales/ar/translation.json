@@ -189,5 +189,29 @@
   "video5Title": "حامل أرضي للتابلت قابل للتعديل ومضاد للسرقة SH PAD06",
   "video5Desc": "حوامل شاشات مريحة للمكاتب",
   "video6Title": "حامل حائط فيديو SVW01 46T",
-  "video6Desc": "حلول تركيب سقف موفرة للمساحة"
+  "video6Desc": "حلول تركيب سقف موفرة للمساحة",
+  "statProjectsLabel": "المشاريع المكتملة",
+  "statStaffLabel": "الموظفون الخبراء",
+  "statProductsLabel": "المنتجات (رمز المنتج)",
+  "statCountriesLabel": "الدول المخدومة",
+  "statCustomersLabel": "العملاء الراضون",
+
+  "statProjectsShort": "مشاريع",
+  "statStaffShort": "موظفون",
+  "statProductsShort": "منتجات",
+  "statCountriesShort": "دول",
+  "statCustomersShort": "عملاء",
+
+  "statProjectsSuffix": "M+",
+  "statStaffSuffix": "+",
+  "statProductsSuffix": "+",
+  "statCountriesSuffix": "+",
+  "statCustomersSuffix": "M+",
+
+  "ourImpact": "أثرنا",
+  "keyStatistics": "إحصائيات رئيسية",
+
+  "sisterConcerns": "الشركات الشقيقة",
+  "fifteenYears": "15 عاماً من",
+"trustAndExcellence": "الثقة والتميّز"
 }
