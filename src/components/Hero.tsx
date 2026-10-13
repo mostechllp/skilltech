@@ -1,16 +1,111 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Volume2, VolumeX } from "lucide-react";
+import { ArrowRight, Volume2, VolumeX, LayoutGrid } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import heroVideo from "../assets/video/hero_video_1.mp4";
+import heroVideo from "../assets/video/hero_video.mp4";
+import { Briefcase, Users, Package, Globe2, Smile } from "lucide-react";
 
+const statIcons = [Briefcase, Users, Package, Globe2, Smile];
+
+// --- Counting Hook ---
+function useCountUp(end: number, duration: number = 2000, start: number = 0) {
+  const [count, setCount] = useState(start);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let startTime: number | null = null;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(easeProgress * (end - start) + start));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration, start, isInView]);
+
+  return { count, ref };
+}
+
+// --- Stats Data ---
+const statsData = [
+  { value: 5, suffix: "M+", label: "PROJECTS COMPLETED" },
+  { value: 200, suffix: "+", label: "EXPERT STAFF" },
+  { value: 1200, suffix: "+", label: "PRODUCTS (SKU)" },
+  { value: 10, suffix: "+", label: "COUNTRIES SERVED" },
+  { value: 10, suffix: "M+", label: "SATISFIED CUSTOMERS" },
+];
+
+// --- Stats Portfolio Card ---
+function StatsCard() {
+  return (
+    <div className="w-full max-w-md bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl">
+      {/* Card Header */}
+      <div className="flex flex-col items-center text-center pb-5 border-b border-white/10">
+        <div className="flex items-center gap-2 text-blue-400 mb-2">
+          <LayoutGrid className="w-4 h-4" />
+          <span className="text-xs font-semibold tracking-widest uppercase">
+            Our Impact
+          </span>
+        </div>
+        <h3 className="text-lg md:text-xl font-bold text-white">
+          Key Statistics
+        </h3>
+      </div>
+
+      {/* Stats List */}
+      <div className="flex flex-col divide-y divide-white/10">
+        {statsData.map((stat, index) => {
+          const { count, ref } = useCountUp(stat.value, 2500);
+          const Icon = statIcons[index] || Briefcase;
+
+          return (
+            <div
+              key={index}
+              className="flex items-center justify-between py-3.5 first:pt-5 last:pb-0"
+            >
+        <div className="flex items-center gap-2.5">
+  <Icon className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
+  <span className="text-[10px] md:text-xs font-semibold text-gray-300 tracking-wider uppercase">
+    {stat.label}
+  </span>
+</div>
+              <div className="flex items-baseline">
+                <span
+                  ref={ref}
+                  className="text-xl md:text-2xl font-bold text-white"
+                >
+                  {count}
+                </span>
+                <span className="text-base md:text-lg font-bold text-blue-400 ml-0.5">
+                  {stat.suffix}
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// --- Main Hero Component ---
 export function Hero() {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    // Play video immediately when component mounts
     if (videoRef.current) {
       videoRef.current.play().catch(error => console.log("Autoplay failed:", error));
     }
@@ -24,9 +119,10 @@ export function Hero() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden min-h-screen flex items-center justify-center">
+    // Locked to one viewport height, no scrolling
+    <section className="relative w-full h-screen overflow-hidden flex items-center px-5">
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full z-0">
         <video
           ref={videoRef}
           autoPlay
@@ -38,46 +134,58 @@ export function Hero() {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Blue + Black Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-black/85 to-black/70"></div>
       </div>
 
-      {/* Content - Visible immediately */}
-      <div className="relative z-10 container mx-auto px-4 md:px-8 py-12 sm:py-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-pink-accent/20 backdrop-blur-sm text-pink-300 text-sm font-medium border border-pink-accent/30">
-            {t("premiumMountingSolutions")}
-          </span>
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 md:px-8 py-8 md:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold text-white leading-tight">
-            {t("mountSmarter")}
-            <br />
-            <span className="text-pink-accent">{t("workBetter")}</span>
-          </h1>
+          {/* LEFT: Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-left"
+          >
 
-          <p className="text-base sm:text-lg text-gray-200 mt-6 max-w-2xl mx-auto">
-            {t("heroDescription")}
-          </p>
+            {/* Smaller headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+              {t("fifteenYears")}
+              <br />
+              <span className="text-blue-400">{t("trustAndExcellence")}</span>
+            </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center">
-            <button className="group bg-pink-accent hover:bg-pink-600 text-white px-8 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg">
-              {t("exploreProducts")}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            <p className="text-sm sm:text-base text-gray-300 mt-5 max-w-lg leading-relaxed">
+              {t("heroDescription")}
+            </p>
 
-            <button className="border border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-full transition-all duration-300">
-              {t("viewProjects")}
-            </button>
-          </div>
-        </motion.div>
+            <div className="flex flex-col sm:flex-row gap-3 mt-7">
+              <button className="group bg-blue-500 hover:bg-blue-600 text-white px-7 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/25 text-sm font-medium">
+                {t("exploreProducts")}
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button className="border border-white/25 bg-white/5 backdrop-blur-sm hover:bg-white/15 text-white px-7 py-3 rounded-full transition-all duration-300 text-sm font-medium">
+                {t("viewProjects")}
+              </button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT: Stats Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center lg:justify-end"
+          >
+            <StatsCard />
+          </motion.div>
+        </div>
       </div>
 
-      {/* Mute/Unmute Button */}
+      {/* Mute Button */}
       <button
         onClick={toggleMute}
         className="absolute bottom-6 right-6 z-20 bg-white/10 backdrop-blur-md p-3 rounded-full text-white hover:bg-white/20 transition-all duration-300 focus:outline-none"

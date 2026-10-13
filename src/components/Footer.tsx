@@ -35,14 +35,16 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0 pt-0">
             {/* Column 1: Quick Links */}
             <div className="md:col-span-2 mt-4 md:mt-12">
-              <img
-                src={logo}
-                alt="Skill Tech Logo"
-                className="h-20 w-auto mb-2 mx-auto md:mx-0"
-              />
-              <p className="text-white text-sm font-medium mb-6 text-center md:text-left">
-                Skill Tech Group of Companies
-              </p>
+              <div className="flex items-center gap-3 mb-6 justify-center md:justify-start">
+    <img
+      src={logo}
+      alt="Skill Tech Logo"
+      className="h-16 md:h-20 w-auto flex-shrink-0"
+    />
+    <p className="text-white text-sm font-medium whitespace-nowrap">
+  Group of Companies
+</p>
+  </div>
               <h4 className="text-lg font-bold text-white mb-6">{t('quickLinks')}</h4>
               <ul className="space-y-2.5">
                 {[
